@@ -7,12 +7,17 @@
 //
 
 #import "TOTParentFeedViewController.h"
+#import "TOTPost.h"
+#import "TOTPostCell.h"
 
 @interface TOTParentFeedViewController ()
 
 @end
 
 @implementation TOTParentFeedViewController
+
+@synthesize postArray;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,6 +31,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.postArray = [[NSMutableArray alloc] init];
+    [self getPosts];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -44,28 +51,33 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [[self postArray] count];
 }
 
-/*
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"Cell";
+    TOTPostCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
     
     return cell;
 }
-*/
+
+
+- (void) getPosts {
+    // Override this method for each getPosts method in Feed and Popular
+}
+
 
 /*
 // Override to support conditional editing of the table view.
