@@ -1,18 +1,18 @@
 //
-//  TOTFirstViewController.m
+//  TOTSecondViewController.m
 //  ThisOrThat
 //
 //  Created by Jerry Liu on 8/2/14.
 //  Copyright (c) 2014 ThisOrThat. All rights reserved.
 //
 
-#import "TOTFirstViewController.h"
+#import "TOTSettingsViewController.h"
 
-@interface TOTFirstViewController ()
+@interface TOTSecondViewController ()
 
 @end
 
-@implementation TOTFirstViewController
+@implementation TOTSecondViewController
 
 - (void)viewDidLoad
 {
