@@ -75,6 +75,7 @@
     cell.image2.image = [[self.postArray objectAtIndex:indexPath.row] image2];
     cell.profileIcon.image = [[self.postArray objectAtIndex:indexPath.row] profileIcon];
     cell.description.text = [[self.postArray objectAtIndex:indexPath.row] description];
+    cell.description.editable = NO;
     
     return cell;
 }

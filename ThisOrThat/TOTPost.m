@@ -10,4 +10,6 @@
 
 @implementation TOTPost
 
+@synthesize user, category, image1, image2, profileIcon, description;
+
 @end
