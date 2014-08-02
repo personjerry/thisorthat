@@ -28,6 +28,7 @@
 		CCD18CCE198D74C9006A79F6 /* TOTPopularViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD18CCD198D74C9006A79F6 /* TOTPopularViewController.m */; };
 		CCD18CD1198D74EF006A79F6 /* TOTPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD18CD0198D74EF006A79F6 /* TOTPostCell.m */; };
 		CCD18CD4198D7504006A79F6 /* TOTPost.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD18CD3198D7504006A79F6 /* TOTPost.m */; };
+		CCD18CD7198D7633006A79F6 /* TOTTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD18CD6198D7633006A79F6 /* TOTTabBarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,8 @@
 		CCD18CD0198D74EF006A79F6 /* TOTPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTPostCell.m; sourceTree = "<group>"; };
 		CCD18CD2198D7504006A79F6 /* TOTPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTPost.h; sourceTree = "<group>"; };
 		CCD18CD3198D7504006A79F6 /* TOTPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTPost.m; sourceTree = "<group>"; };
+		CCD18CD5198D7633006A79F6 /* TOTTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTTabBarViewController.h; sourceTree = "<group>"; };
+		CCD18CD6198D7633006A79F6 /* TOTTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTTabBarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +138,8 @@
 			children = (
 				C4118643198D6FAD0090E018 /* TOTAppDelegate.h */,
 				C4118644198D6FAD0090E018 /* TOTAppDelegate.m */,
+				CCD18CD5198D7633006A79F6 /* TOTTabBarViewController.h */,
+				CCD18CD6198D7633006A79F6 /* TOTTabBarViewController.m */,
 				CCD18CC6198D74A3006A79F6 /* TOTParentFeedViewController.h */,
 				CCD18CC7198D74A3006A79F6 /* TOTParentFeedViewController.m */,
 				CCD18CC9198D74BD006A79F6 /* TOTFeedViewController.h */,
@@ -294,6 +299,7 @@
 				CCD18CD1198D74EF006A79F6 /* TOTPostCell.m in Sources */,
 				C4118641198D6FAD0090E018 /* main.m in Sources */,
 				CCD18CCE198D74C9006A79F6 /* TOTPopularViewController.m in Sources */,
+				CCD18CD7198D7633006A79F6 /* TOTTabBarViewController.m in Sources */,
 				CCD18CCB198D74BD006A79F6 /* TOTFeedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
