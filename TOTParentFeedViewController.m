@@ -7,12 +7,17 @@
 //
 
 #import "TOTParentFeedViewController.h"
+#import "TOTPost.h"
+#import "TOTPostCell.h"
 
 @interface TOTParentFeedViewController ()
 
 @end
 
 @implementation TOTParentFeedViewController
+
+@synthesize postArray;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,6 +31,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.postArray = [[NSMutableArray alloc] init];
+    [self getPosts];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -44,28 +51,66 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [[self postArray] count];
 }
 
-/*
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"Cell";
+    TOTPostCell *cell = (TOTPostCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    cell.user.text = [[self.postArray objectAtIndex:indexPath.row] user];
+    cell.category.text = [[self.postArray objectAtIndex:indexPath.row] category];
+    cell.image1.image = [[self.postArray objectAtIndex:indexPath.row] image1];
+    cell.image2.image = [[self.postArray objectAtIndex:indexPath.row] image2];
+    cell.profileIcon.image = [[self.postArray objectAtIndex:indexPath.row] profileIcon];
+    cell.description.text = [[self.postArray objectAtIndex:indexPath.row] description];
     
     return cell;
 }
-*/
+
+
+- (void) getPosts {
+    // Override this method for each getPosts method in Feed and Popular
+    TOTPost *post1 = [[TOTPost alloc] init];
+    TOTPost *post2 = [[TOTPost alloc] init];
+    TOTPost *post3 = [[TOTPost alloc] init];
+    
+    post1.user = @"post1";
+    post2.user = @"post2";
+    post3.user = @"post3";
+    
+    post1.description = @"description1";
+    post2.description = @"description2";
+    post3.description = @"description3";
+    
+    post1.category = @"Books";
+    post2.category = @"Clothes";
+    post3.category = @"Food";
+    
+    post1.image1 = [UIImage imageNamed:@"testimage1.jpg"];
+    post1.image2 = [UIImage imageNamed:@"testimage2.jpg"];
+    post2.image1 = [UIImage imageNamed:@"testimage2.jpg"];
+    post2.image2 = [UIImage imageNamed:@"testimage3.jpg"];
+    post3.image1 = [UIImage imageNamed:@"testimage3.jpg"];
+    post3.image2 = [UIImage imageNamed:@"testimage1.jpg"];
+    
+    
+    [self.postArray addObject:post1];
+    [self.postArray addObject:post2];
+    [self.postArray addObject:post3];
+}
+
 
 /*
 // Override to support conditional editing of the table view.
