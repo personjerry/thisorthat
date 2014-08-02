@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TOTSecondViewController : UIViewController
+@interface TOTSettingsViewController : UIViewController
 
 @end

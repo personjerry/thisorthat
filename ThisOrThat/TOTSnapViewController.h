@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TOTFirstViewController : UIViewController
+@interface TOTSnapViewController : UIImagePickerController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @end
