@@ -66,7 +66,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    TOTPostCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    TOTPostCell *cell = (TOTPostCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
     cell.user.text = [[self.postArray objectAtIndex:indexPath.row] user];
@@ -82,6 +82,33 @@
 
 - (void) getPosts {
     // Override this method for each getPosts method in Feed and Popular
+    TOTPost *post1 = [[TOTPost alloc] init];
+    TOTPost *post2 = [[TOTPost alloc] init];
+    TOTPost *post3 = [[TOTPost alloc] init];
+    
+    post1.user = @"post1";
+    post2.user = @"post2";
+    post3.user = @"post3";
+    
+    post1.description = @"description1";
+    post2.description = @"description2";
+    post3.description = @"description3";
+    
+    post1.category = @"Books";
+    post2.category = @"Clothes";
+    post3.category = @"Food";
+    
+    post1.image1 = [UIImage imageNamed:@"testimage1.jpg"];
+    post1.image2 = [UIImage imageNamed:@"testimage2.jpg"];
+    post2.image1 = [UIImage imageNamed:@"testimage2.jpg"];
+    post2.image2 = [UIImage imageNamed:@"testimage3.jpg"];
+    post3.image1 = [UIImage imageNamed:@"testimage3.jpg"];
+    post3.image2 = [UIImage imageNamed:@"testimage1.jpg"];
+    
+    
+    [self.postArray addObject:post1];
+    [self.postArray addObject:post2];
+    [self.postArray addObject:post3];
 }
 
 
