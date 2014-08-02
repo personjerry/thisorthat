@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>01E72A7B-3C6A-4185-988A-B7436C4D156D</string>
+	<string>789B749A-3011-4E36-9C22-7D214FDA31F7</string>
 	<key>IDESourceControlProjectName</key>
 	<string>ThisOrThat</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>704224D3-CA43-4BF2-87C0-6F787AD1EE76</key>
-		<string>https://github.com/personjerry/thisorthat</string>
+		<key>E40D7BCE-C577-433A-8A14-81DDF3C3FF14</key>
+		<string>https://github.com/personjerry/thisorthat.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>ThisOrThat.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>704224D3-CA43-4BF2-87C0-6F787AD1EE76</key>
+		<key>E40D7BCE-C577-433A-8A14-81DDF3C3FF14</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/personjerry/thisorthat</string>
+	<string>https://github.com/personjerry/thisorthat.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>704224D3-CA43-4BF2-87C0-6F787AD1EE76</string>
+	<string>E40D7BCE-C577-433A-8A14-81DDF3C3FF14</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>704224D3-CA43-4BF2-87C0-6F787AD1EE76</string>
+			<string>E40D7BCE-C577-433A-8A14-81DDF3C3FF14</string>
 			<key>IDESourceControlWCCName</key>
-			<string>thisorthat</string>
+			<string>ThisOrThat</string>
 		</dict>
 	</array>
 </dict>
