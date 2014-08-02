@@ -14,14 +14,20 @@
 		C4118641198D6FAD0090E018 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4118640198D6FAD0090E018 /* main.m */; };
 		C4118645198D6FAD0090E018 /* TOTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4118644198D6FAD0090E018 /* TOTAppDelegate.m */; };
 		C4118648198D6FAD0090E018 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4118646198D6FAD0090E018 /* Main_iPhone.storyboard */; };
-		C411864E198D6FAD0090E018 /* TOTFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C411864D198D6FAD0090E018 /* TOTFirstViewController.m */; };
-		C4118651198D6FAD0090E018 /* TOTSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4118650198D6FAD0090E018 /* TOTSecondViewController.m */; };
+		C411864E198D6FAD0090E018 /* TOTSnapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C411864D198D6FAD0090E018 /* TOTSnapViewController.m */; };
+		C4118651198D6FAD0090E018 /* TOTSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4118650198D6FAD0090E018 /* TOTSettingsViewController.m */; };
 		C4118653198D6FAD0090E018 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4118652198D6FAD0090E018 /* Images.xcassets */; };
 		C411865A198D6FAE0090E018 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4118659198D6FAE0090E018 /* XCTest.framework */; };
 		C411865B198D6FAE0090E018 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4118634198D6FAD0090E018 /* Foundation.framework */; };
 		C411865C198D6FAE0090E018 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4118638198D6FAD0090E018 /* UIKit.framework */; };
 		C4118664198D6FAE0090E018 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4118662198D6FAE0090E018 /* InfoPlist.strings */; };
 		C4118666198D6FAE0090E018 /* ThisOrThatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4118665198D6FAE0090E018 /* ThisOrThatTests.m */; };
+		CCD18CC2198D73D9006A79F6 /* TOTFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD18CC1198D73D9006A79F6 /* TOTFriendsViewController.m */; };
+		CCD18CC8198D74A3006A79F6 /* TOTParentFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD18CC7198D74A3006A79F6 /* TOTParentFeedViewController.m */; };
+		CCD18CCB198D74BD006A79F6 /* TOTFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD18CCA198D74BD006A79F6 /* TOTFeedViewController.m */; };
+		CCD18CCE198D74C9006A79F6 /* TOTPopularViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD18CCD198D74C9006A79F6 /* TOTPopularViewController.m */; };
+		CCD18CD1198D74EF006A79F6 /* TOTPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD18CD0198D74EF006A79F6 /* TOTPostCell.m */; };
+		CCD18CD4198D7504006A79F6 /* TOTPost.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD18CD3198D7504006A79F6 /* TOTPost.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,16 +52,28 @@
 		C4118643198D6FAD0090E018 /* TOTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOTAppDelegate.h; sourceTree = "<group>"; };
 		C4118644198D6FAD0090E018 /* TOTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOTAppDelegate.m; sourceTree = "<group>"; };
 		C4118647198D6FAD0090E018 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		C411864C198D6FAD0090E018 /* TOTFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOTFirstViewController.h; sourceTree = "<group>"; };
-		C411864D198D6FAD0090E018 /* TOTFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOTFirstViewController.m; sourceTree = "<group>"; };
-		C411864F198D6FAD0090E018 /* TOTSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOTSecondViewController.h; sourceTree = "<group>"; };
-		C4118650198D6FAD0090E018 /* TOTSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOTSecondViewController.m; sourceTree = "<group>"; };
+		C411864C198D6FAD0090E018 /* TOTSnapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOTSnapViewController.h; sourceTree = "<group>"; };
+		C411864D198D6FAD0090E018 /* TOTSnapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOTSnapViewController.m; sourceTree = "<group>"; };
+		C411864F198D6FAD0090E018 /* TOTSettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOTSettingsViewController.h; sourceTree = "<group>"; };
+		C4118650198D6FAD0090E018 /* TOTSettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOTSettingsViewController.m; sourceTree = "<group>"; };
 		C4118652198D6FAD0090E018 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C4118658198D6FAE0090E018 /* ThisOrThatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThisOrThatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4118659198D6FAE0090E018 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C4118661198D6FAE0090E018 /* ThisOrThatTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ThisOrThatTests-Info.plist"; sourceTree = "<group>"; };
 		C4118663198D6FAE0090E018 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C4118665198D6FAE0090E018 /* ThisOrThatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThisOrThatTests.m; sourceTree = "<group>"; };
+		CCD18CC0198D73D9006A79F6 /* TOTFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTFriendsViewController.h; sourceTree = "<group>"; };
+		CCD18CC1198D73D9006A79F6 /* TOTFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTFriendsViewController.m; sourceTree = "<group>"; };
+		CCD18CC6198D74A3006A79F6 /* TOTParentFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOTParentFeedViewController.h; path = ../TOTParentFeedViewController.h; sourceTree = "<group>"; };
+		CCD18CC7198D74A3006A79F6 /* TOTParentFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TOTParentFeedViewController.m; path = ../TOTParentFeedViewController.m; sourceTree = "<group>"; };
+		CCD18CC9198D74BD006A79F6 /* TOTFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTFeedViewController.h; sourceTree = "<group>"; };
+		CCD18CCA198D74BD006A79F6 /* TOTFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTFeedViewController.m; sourceTree = "<group>"; };
+		CCD18CCC198D74C9006A79F6 /* TOTPopularViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTPopularViewController.h; sourceTree = "<group>"; };
+		CCD18CCD198D74C9006A79F6 /* TOTPopularViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTPopularViewController.m; sourceTree = "<group>"; };
+		CCD18CCF198D74EF006A79F6 /* TOTPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTPostCell.h; sourceTree = "<group>"; };
+		CCD18CD0198D74EF006A79F6 /* TOTPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTPostCell.m; sourceTree = "<group>"; };
+		CCD18CD2198D7504006A79F6 /* TOTPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTPost.h; sourceTree = "<group>"; };
+		CCD18CD3198D7504006A79F6 /* TOTPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTPost.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,11 +135,23 @@
 			children = (
 				C4118643198D6FAD0090E018 /* TOTAppDelegate.h */,
 				C4118644198D6FAD0090E018 /* TOTAppDelegate.m */,
+				CCD18CC6198D74A3006A79F6 /* TOTParentFeedViewController.h */,
+				CCD18CC7198D74A3006A79F6 /* TOTParentFeedViewController.m */,
+				CCD18CC9198D74BD006A79F6 /* TOTFeedViewController.h */,
+				CCD18CCA198D74BD006A79F6 /* TOTFeedViewController.m */,
+				CCD18CCC198D74C9006A79F6 /* TOTPopularViewController.h */,
+				CCD18CCD198D74C9006A79F6 /* TOTPopularViewController.m */,
+				C411864C198D6FAD0090E018 /* TOTSnapViewController.h */,
+				C411864D198D6FAD0090E018 /* TOTSnapViewController.m */,
+				CCD18CC0198D73D9006A79F6 /* TOTFriendsViewController.h */,
+				CCD18CC1198D73D9006A79F6 /* TOTFriendsViewController.m */,
+				C411864F198D6FAD0090E018 /* TOTSettingsViewController.h */,
+				C4118650198D6FAD0090E018 /* TOTSettingsViewController.m */,
 				C4118646198D6FAD0090E018 /* Main_iPhone.storyboard */,
-				C411864C198D6FAD0090E018 /* TOTFirstViewController.h */,
-				C411864D198D6FAD0090E018 /* TOTFirstViewController.m */,
-				C411864F198D6FAD0090E018 /* TOTSecondViewController.h */,
-				C4118650198D6FAD0090E018 /* TOTSecondViewController.m */,
+				CCD18CCF198D74EF006A79F6 /* TOTPostCell.h */,
+				CCD18CD0198D74EF006A79F6 /* TOTPostCell.m */,
+				CCD18CD2198D7504006A79F6 /* TOTPost.h */,
+				CCD18CD3198D7504006A79F6 /* TOTPost.m */,
 				C4118652198D6FAD0090E018 /* Images.xcassets */,
 				C411863B198D6FAD0090E018 /* Supporting Files */,
 			);
@@ -255,10 +285,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C411864E198D6FAD0090E018 /* TOTFirstViewController.m in Sources */,
+				CCD18CC8198D74A3006A79F6 /* TOTParentFeedViewController.m in Sources */,
+				C411864E198D6FAD0090E018 /* TOTSnapViewController.m in Sources */,
 				C4118645198D6FAD0090E018 /* TOTAppDelegate.m in Sources */,
-				C4118651198D6FAD0090E018 /* TOTSecondViewController.m in Sources */,
+				C4118651198D6FAD0090E018 /* TOTSettingsViewController.m in Sources */,
+				CCD18CC2198D73D9006A79F6 /* TOTFriendsViewController.m in Sources */,
+				CCD18CD4198D7504006A79F6 /* TOTPost.m in Sources */,
+				CCD18CD1198D74EF006A79F6 /* TOTPostCell.m in Sources */,
 				C4118641198D6FAD0090E018 /* main.m in Sources */,
+				CCD18CCE198D74C9006A79F6 /* TOTPopularViewController.m in Sources */,
+				CCD18CCB198D74BD006A79F6 /* TOTFeedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
