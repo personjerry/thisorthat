@@ -10,4 +10,12 @@
 
 @interface TOTPostCell : UITableViewCell
 
+@property (nonatomic, strong) IBOutlet UILabel *user;
+@property (nonatomic, strong) IBOutlet UILabel *category;
+@property (nonatomic, strong) IBOutlet UIImageView *image1;
+@property (nonatomic, strong) IBOutlet UIImageView *image2;
+@property (nonatomic, strong) IBOutlet UIImageView *profileIcon;
+@property (nonatomic, strong) IBOutlet UITextView *description;
+
+
 @end

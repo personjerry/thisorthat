@@ -10,4 +10,11 @@
 
 @interface TOTPost : NSObject
 
+@property (nonatomic, strong) NSString *user;
+@property (nonatomic, strong) NSString *category;
+@property (nonatomic, strong) UIImage *image1;
+@property (nonatomic, strong) UIImage *image2;
+@property (nonatomic, strong) UIImage *profileIcon;
+@property (nonatomic, strong) NSString *description;
+
 @end
