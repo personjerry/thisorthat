@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TOTPost : NSObject
+@interface TOTPost : BAAObject
 
 @property (nonatomic, strong) NSString *user;
 @property (nonatomic, strong) NSString *category;

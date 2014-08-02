@@ -7,6 +7,7 @@
 //
 
 #import "TOTSnapViewController.h"
+#import "TOTPost.h"
 
 @interface TOTFirstViewController ()
 
@@ -24,6 +25,19 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) performPost {
+    TOTPost *post = [[TOTPost alloc] init];
+    [post saveObjectWithCompletion:^(TOTPost *p, NSError *error) {
+        
+        if (error == nil) {
+            NSLog(@"saved post is %@", p);
+        } else {
+            // deal with error
+        }
+        
+    }];
 }
 
 @end
