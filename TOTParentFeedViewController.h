@@ -10,4 +10,6 @@
 
 @interface TOTParentFeedViewController : UITableViewController
 
+@property (nonatomic, strong) NSMutableArray *postArray;
+
 @end
