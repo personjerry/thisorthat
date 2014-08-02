@@ -7,11 +7,22 @@
 //
 
 #import "TOTAppDelegate.h"
+#import "TOTLoginViewController.h"
 
 @implementation TOTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [BaasBox setBaseURL:@"http://localhost:9000"
+                appCode:@"1234567890"];
+    // Override point for customization after application launch.
+    
+    TOTLoginViewController *vc = [[TOTLoginViewController alloc] init];
+    self.window.rootViewController = vc;
+    [self.window makeKeyAndVisible];
+    
+    return YES;
     // Override point for customization after application launch.
     return YES;
 }

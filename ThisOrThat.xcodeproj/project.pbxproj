@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B13E2E96F5D74AAB9D3A2D20 /* libPods-ThisOrThatTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F78DD3B34B404F1F95A67EE5 /* libPods-ThisOrThatTests.a */; };
 		C4118635198D6FAD0090E018 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4118634198D6FAD0090E018 /* Foundation.framework */; };
 		C4118637198D6FAD0090E018 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4118636198D6FAD0090E018 /* CoreGraphics.framework */; };
 		C4118639198D6FAD0090E018 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4118638198D6FAD0090E018 /* UIKit.framework */; };
@@ -22,6 +23,9 @@
 		C411865C198D6FAE0090E018 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4118638198D6FAD0090E018 /* UIKit.framework */; };
 		C4118664198D6FAE0090E018 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4118662198D6FAE0090E018 /* InfoPlist.strings */; };
 		C4118666198D6FAE0090E018 /* ThisOrThatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4118665198D6FAE0090E018 /* ThisOrThatTests.m */; };
+		C4A62DD8198D79A500AD07C5 /* TOTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A62DD6198D79A500AD07C5 /* TOTLoginViewController.m */; };
+		C4A62DD9198D79A500AD07C5 /* TOTLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4A62DD7198D79A500AD07C5 /* TOTLoginViewController.xib */; };
+		C5628E0B33FC4585B9CF3FE9 /* libPods-ThisOrThat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9104F968E4C42B5A301D40A /* libPods-ThisOrThat.a */; };
 		CCD18CC2198D73D9006A79F6 /* TOTFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD18CC1198D73D9006A79F6 /* TOTFriendsViewController.m */; };
 		CCD18CC8198D74A3006A79F6 /* TOTParentFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD18CC7198D74A3006A79F6 /* TOTParentFeedViewController.m */; };
 		CCD18CCB198D74BD006A79F6 /* TOTFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD18CCA198D74BD006A79F6 /* TOTFeedViewController.m */; };
@@ -42,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A5FF17C61204D649BE1909F /* Pods-ThisOrThat.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThisOrThat.xcconfig"; path = "Pods/Pods-ThisOrThat.xcconfig"; sourceTree = "<group>"; };
 		C4118631198D6FAD0090E018 /* ThisOrThat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThisOrThat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4118634198D6FAD0090E018 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C4118636198D6FAD0090E018 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -63,6 +68,9 @@
 		C4118661198D6FAE0090E018 /* ThisOrThatTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ThisOrThatTests-Info.plist"; sourceTree = "<group>"; };
 		C4118663198D6FAE0090E018 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C4118665198D6FAE0090E018 /* ThisOrThatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThisOrThatTests.m; sourceTree = "<group>"; };
+		C4A62DD5198D79A500AD07C5 /* TOTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTLoginViewController.h; sourceTree = "<group>"; };
+		C4A62DD6198D79A500AD07C5 /* TOTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTLoginViewController.m; sourceTree = "<group>"; };
+		C4A62DD7198D79A500AD07C5 /* TOTLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TOTLoginViewController.xib; sourceTree = "<group>"; };
 		CCD18CC0198D73D9006A79F6 /* TOTFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTFriendsViewController.h; sourceTree = "<group>"; };
 		CCD18CC1198D73D9006A79F6 /* TOTFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTFriendsViewController.m; sourceTree = "<group>"; };
 		CCD18CC6198D74A3006A79F6 /* TOTParentFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOTParentFeedViewController.h; path = ../TOTParentFeedViewController.h; sourceTree = "<group>"; };
@@ -77,6 +85,9 @@
 		CCD18CD3198D7504006A79F6 /* TOTPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTPost.m; sourceTree = "<group>"; };
 		CCD18CD5198D7633006A79F6 /* TOTTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTTabBarViewController.h; sourceTree = "<group>"; };
 		CCD18CD6198D7633006A79F6 /* TOTTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTTabBarViewController.m; sourceTree = "<group>"; };
+		E652326ACCB34658BCAA7D7B /* Pods-ThisOrThatTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThisOrThatTests.xcconfig"; path = "Pods/Pods-ThisOrThatTests.xcconfig"; sourceTree = "<group>"; };
+		F78DD3B34B404F1F95A67EE5 /* libPods-ThisOrThatTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThisOrThatTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9104F968E4C42B5A301D40A /* libPods-ThisOrThat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThisOrThat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +98,7 @@
 				C4118637198D6FAD0090E018 /* CoreGraphics.framework in Frameworks */,
 				C4118639198D6FAD0090E018 /* UIKit.framework in Frameworks */,
 				C4118635198D6FAD0090E018 /* Foundation.framework in Frameworks */,
+				C5628E0B33FC4585B9CF3FE9 /* libPods-ThisOrThat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +109,7 @@
 				C411865A198D6FAE0090E018 /* XCTest.framework in Frameworks */,
 				C411865C198D6FAE0090E018 /* UIKit.framework in Frameworks */,
 				C411865B198D6FAE0090E018 /* Foundation.framework in Frameworks */,
+				B13E2E96F5D74AAB9D3A2D20 /* libPods-ThisOrThatTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +123,8 @@
 				C411865F198D6FAE0090E018 /* ThisOrThatTests */,
 				C4118633198D6FAD0090E018 /* Frameworks */,
 				C4118632198D6FAD0090E018 /* Products */,
+				8A5FF17C61204D649BE1909F /* Pods-ThisOrThat.xcconfig */,
+				E652326ACCB34658BCAA7D7B /* Pods-ThisOrThatTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,6 +144,8 @@
 				C4118636198D6FAD0090E018 /* CoreGraphics.framework */,
 				C4118638198D6FAD0090E018 /* UIKit.framework */,
 				C4118659198D6FAE0090E018 /* XCTest.framework */,
+				F9104F968E4C42B5A301D40A /* libPods-ThisOrThat.a */,
+				F78DD3B34B404F1F95A67EE5 /* libPods-ThisOrThatTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -138,6 +155,9 @@
 			children = (
 				C4118643198D6FAD0090E018 /* TOTAppDelegate.h */,
 				C4118644198D6FAD0090E018 /* TOTAppDelegate.m */,
+				C4A62DD5198D79A500AD07C5 /* TOTLoginViewController.h */,
+				C4A62DD6198D79A500AD07C5 /* TOTLoginViewController.m */,
+				C4A62DD7198D79A500AD07C5 /* TOTLoginViewController.xib */,
 				CCD18CD5198D7633006A79F6 /* TOTTabBarViewController.h */,
 				CCD18CD6198D7633006A79F6 /* TOTTabBarViewController.m */,
 				CCD18CC6198D74A3006A79F6 /* TOTParentFeedViewController.h */,
@@ -199,9 +219,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4118669198D6FAE0090E018 /* Build configuration list for PBXNativeTarget "ThisOrThat" */;
 			buildPhases = (
+				301F1053BA004D6E91E27014 /* Check Pods Manifest.lock */,
 				C411862D198D6FAD0090E018 /* Sources */,
 				C411862E198D6FAD0090E018 /* Frameworks */,
 				C411862F198D6FAD0090E018 /* Resources */,
+				D9F15CB04DDC43199E640A2F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -216,9 +238,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C411866C198D6FAE0090E018 /* Build configuration list for PBXNativeTarget "ThisOrThatTests" */;
 			buildPhases = (
+				5D8B0E4E5F664955AC4263B8 /* Check Pods Manifest.lock */,
 				C4118654198D6FAE0090E018 /* Sources */,
 				C4118655198D6FAE0090E018 /* Frameworks */,
 				C4118656198D6FAE0090E018 /* Resources */,
+				8038170545CE499583736274 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -271,6 +295,7 @@
 			files = (
 				C4118653198D6FAD0090E018 /* Images.xcassets in Resources */,
 				C4118648198D6FAD0090E018 /* Main_iPhone.storyboard in Resources */,
+				C4A62DD9198D79A500AD07C5 /* TOTLoginViewController.xib in Resources */,
 				C411863F198D6FAD0090E018 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +309,69 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		301F1053BA004D6E91E27014 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5D8B0E4E5F664955AC4263B8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8038170545CE499583736274 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-ThisOrThatTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9F15CB04DDC43199E640A2F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-ThisOrThat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C411862D198D6FAD0090E018 /* Sources */ = {
@@ -300,6 +388,7 @@
 				C4118641198D6FAD0090E018 /* main.m in Sources */,
 				CCD18CCE198D74C9006A79F6 /* TOTPopularViewController.m in Sources */,
 				CCD18CD7198D7633006A79F6 /* TOTTabBarViewController.m in Sources */,
+				C4A62DD8198D79A500AD07C5 /* TOTLoginViewController.m in Sources */,
 				CCD18CCB198D74BD006A79F6 /* TOTFeedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +513,7 @@
 		};
 		C411866A198D6FAE0090E018 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A5FF17C61204D649BE1909F /* Pods-ThisOrThat.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -437,6 +527,7 @@
 		};
 		C411866B198D6FAE0090E018 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A5FF17C61204D649BE1909F /* Pods-ThisOrThat.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -450,6 +541,7 @@
 		};
 		C411866D198D6FAE0090E018 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E652326ACCB34658BCAA7D7B /* Pods-ThisOrThatTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ThisOrThat.app/ThisOrThat";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -472,6 +564,7 @@
 		};
 		C411866E198D6FAE0090E018 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E652326ACCB34658BCAA7D7B /* Pods-ThisOrThatTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ThisOrThat.app/ThisOrThat";
 				FRAMEWORK_SEARCH_PATHS = (
