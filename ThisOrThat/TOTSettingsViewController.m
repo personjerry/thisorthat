@@ -128,19 +128,15 @@
     cell.description.editable = NO;
     
     UIImageView *winner = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"winner.png"]];
-    winner.backgroundColor = [UIColor clearColor];
-    //if (post.image1Votes > post.image2Votes) {
+    if (post.image1Votes > post.image2Votes) {
         NSLog(@"Image 1 wins");
-        [winner setFrame:cell.image1.frame];
-    /*} else if (post.image1Votes < post.image2Votes) {
+        [cell.image1 addSubview:winner];
+    } else if (post.image1Votes < post.image2Votes) {
         NSLog(@"Image 2 wins");
-        [winner setFrame:cell.image2.frame];
+        [cell.image2 addSubview:winner];
     } else {
         NSLog(@"TIE");
-    }*/
-    [self.view sendSubviewToBack:cell.image1];
-    winner.layer.zPosition = 3;
-    
+    }
     return cell;
 }
 
