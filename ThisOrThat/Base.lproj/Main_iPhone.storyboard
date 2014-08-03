@@ -67,7 +67,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Feed" image="first" id="u1e-5L-l1D"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="iconmonstr-rss-4-icon-32" id="u1e-5L-l1D"/>
                     <connections>
                         <outlet property="tableView" destination="Wkj-NR-dmm" id="FTT-ed-eZH"/>
                     </connections>
@@ -137,7 +137,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Popular" image="second" id="Z7h-1E-pvt"/>
+                    <tabBarItem key="tabBarItem" title="Popular" image="iconmonstr-globe-4-icon-32" id="Z7h-1E-pvt"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-4t-Ow8" sceneMemberID="firstResponder"/>
             </objects>
@@ -165,7 +165,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="fJQ-tt-xIj"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="iconmonstr-wrench-6-icon-32" id="fJQ-tt-xIj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PR9-Ft-Sr0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -192,7 +192,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Friends" id="07w-SL-xIU"/>
+                    <tabBarItem key="tabBarItem" title="Friends" image="iconmonstr-user-14-icon-32" id="07w-SL-xIU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UsT-fF-F5I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -229,11 +229,18 @@
                                 <rect key="frame" x="160" y="155" width="160" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Post a ThisOrThat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCe-8L-3q4">
-                                <rect key="frame" x="91" y="76" width="139" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ThisOrThat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCe-8L-3q4">
+                                <rect key="frame" x="80" y="35" width="161" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <color key="textColor" red="0.34117648010000001" green="0.16078431900000001" blue="0.60000002379999995" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Post!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VaK-oP-tKy">
+                                <rect key="frame" x="140" y="92" width="40" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.34117648010000001" green="0.16078431900000001" blue="0.60000002379999995" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbo-SM-67T">
@@ -350,7 +357,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Snap" id="fV4-wH-fXs"/>
+                    <tabBarItem key="tabBarItem" title="Snap" image="iconmonstr-photo-camera-7-icon-32" id="fV4-wH-fXs"/>
                     <connections>
                         <outlet property="artButton" destination="p3s-yP-lfE" id="UGk-No-vZg"/>
                         <outlet property="descriptionField" destination="JqN-ew-rSK" id="lV1-F2-fuq"/>
@@ -390,9 +397,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="iconmonstr-globe-4-icon-32" width="32" height="32"/>
+        <image name="iconmonstr-photo-camera-7-icon-32" width="32" height="32"/>
+        <image name="iconmonstr-rss-4-icon-32" width="32" height="32"/>
+        <image name="iconmonstr-user-14-icon-32" width="32" height="32"/>
+        <image name="iconmonstr-wrench-6-icon-32" width="32" height="32"/>
         <image name="image" width="256" height="256"/>
-        <image name="second" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

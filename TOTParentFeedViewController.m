@@ -221,7 +221,7 @@
         CGRect image1RectInTableViewCoorSys = [self.tableView convertRect:cell.image1.frame fromView:cell];
         if (CGRectContainsPoint(image1RectInTableViewCoorSys, swipeLocation)) {
             NSLog(@"HELLO, image1 was swiped left.");
-            [self chooseLeft];
+            [self chooseLeft:cell];
         }
     }
     
@@ -237,19 +237,21 @@
         CGRect image2RectInTableViewCoorSys = [self.tableView convertRect:cell.image2.frame fromView:cell];
         if (CGRectContainsPoint(image2RectInTableViewCoorSys, swipeLocation)) {
             NSLog(@"HELLO, image2 was swiped right.");
-            [self chooseRight];
+            [self chooseRight:cell];
         }
         
     }
 }
 
 
-- (void) chooseLeft {
-    NSLog(@"Chose left");
+- (void) chooseLeft: (TOTPostCell *) cell {
+    [cell addSubview:cell.image1];
+    cell.clipsToBounds = YES;
 }
 
-- (void) chooseRight {
-    NSLog(@"Chose right");
+- (void) chooseRight: (TOTPostCell *) cell {
+    [cell addSubview:cell.image2];
+    cell.clipsToBounds = YES;
 }
 
 
