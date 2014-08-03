@@ -17,6 +17,7 @@ CGRect prevFrame;
 
 }
 
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *postArray;
 @property (nonatomic) NSInteger reloadOffset;
 @property (nonatomic, strong) TOTPostCell *currCell;

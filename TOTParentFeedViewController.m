@@ -33,7 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.reloadOffset = 1;
+    self.reloadOffset = 20;
     self.postArray = [[NSMutableArray alloc] init];
     [self getPosts];
     
@@ -42,11 +42,9 @@
     isFullScreen = false;
     tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgToFullScreen)];
     tap.numberOfTapsRequired = 1;
-    //tap.delegate = self;
-    //[self.view addGestureRecognizer:tap];
     
     //
-    [self.tableView reloadData];
+    //[self.tableView reloadData];
     
     
     // Uncomment the following line to preserve selection between presentations.

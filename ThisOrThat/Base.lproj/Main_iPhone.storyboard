@@ -68,6 +68,9 @@
                         </prototypes>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Feed" image="first" id="u1e-5L-l1D"/>
+                    <connections>
+                        <outlet property="tableView" destination="Wkj-NR-dmm" id="FTT-ed-eZH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
             </objects>
