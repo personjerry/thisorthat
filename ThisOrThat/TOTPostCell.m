@@ -13,13 +13,15 @@
 @synthesize user, category, image1, image2, profileIcon, description;
 
 
-
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
     }
+    self.image1.userInteractionEnabled = YES;
+    self.image2.userInteractionEnabled = YES;
+    
     return self;
 }
 

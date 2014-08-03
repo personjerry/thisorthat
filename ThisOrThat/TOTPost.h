@@ -16,5 +16,7 @@
 @property (nonatomic, strong) UIImage *image2;
 @property (nonatomic, strong) UIImage *profileIcon;
 @property (nonatomic, strong) NSString *description;
+@property (nonatomic) NSInteger image1Votes;
+@property (nonatomic) NSInteger image2Votes;
 
 @end

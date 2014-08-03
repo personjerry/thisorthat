@@ -9,6 +9,7 @@
 #import "TOTParentFeedViewController.h"
 #import "TOTPost.h"
 #import "TOTPostCell.h"
+#import <objc/runtime.h>
 
 @interface TOTParentFeedViewController ()
 
@@ -16,7 +17,7 @@
 
 @implementation TOTParentFeedViewController
 
-@synthesize postArray, reloadOffset;
+@synthesize postArray, reloadOffset, currCell;
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -34,6 +35,17 @@
     self.reloadOffset = 1;
     self.postArray = [[NSMutableArray alloc] init];
     [self getPosts];
+    
+    self.view.userInteractionEnabled = YES;
+    
+    isFullScreen = false;
+    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgToFullScreen)];
+    tap.numberOfTapsRequired = 1;
+    //tap.delegate = self;
+    //[self.view addGestureRecognizer:tap];
+    
+    [self.tableView reloadData];
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -74,6 +86,7 @@
     
     static NSString *CellIdentifier = @"Cell";
     TOTPostCell *cell = (TOTPostCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    currCell = cell;
     
     // Configure the cell...
     cell.user.text = [[self.postArray objectAtIndex:indexPath.row] user];
@@ -84,8 +97,90 @@
     cell.description.text = [[self.postArray objectAtIndex:indexPath.row] description];
     cell.description.editable = NO;
     
+    cell.image1.userInteractionEnabled = YES;
+    tap.delegate = cell.image1;
+    [cell.image1 addGestureRecognizer:tap];
+    
+    /*
+    UIImageView *image1View = cell.image1;
+    
+    UIImageView *image1Expand = [[UIImageView alloc] initWithImage:image1View.image];
+    image1Expand.contentMode =image1View.contentMode;
+    image1Expand.frame = [self.view convertRect:image1View.frame fromView:image1View.superview];
+    image1Expand.userInteractionEnabled = YES;
+    image1Expand.clipsToBounds = YES;
+    
+    objc_setAssociatedObject(image1Expand,
+                             "original_frame",
+                             [NSValue valueWithCGRect: image1Expand.frame],
+                             OBJC_ASSOCIATION_RETAIN);
+    [UIView transitionWithView: self.view
+                      duration: 1.0
+                       options: UIViewAnimationOptionAllowAnimatedContent
+                    animations:^{
+                        
+                        [self.view addSubview: image1Expand];
+                        image1Expand.frame = self.view.bounds;
+                        
+                    } completion:^(BOOL finished) {
+                        
+                        UITapGestureRecognizer* tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action: @selector( onTap: )];
+                        [image1Expand addGestureRecognizer: tgr];
+                    }];
+    */
     return cell;
 }
+
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch;
+{
+    NSLog(@"in gestureRecognizer");
+    BOOL shouldReceiveTouch = YES;
+    
+    if (gestureRecognizer == tap) {
+        shouldReceiveTouch = (touch.view == currCell.image1);
+    }
+    NSLog(@"shouldreceivetouch: %s", shouldReceiveTouch ? "true" : "false");
+    //return shouldReceiveTouch;
+    return YES;
+}
+
+//-(IBAction)imgToFullScreen:(id)sender {
+-(void)imgToFullScreen{
+    NSLog(@"In imgtofullscreen");
+    if (!isFullScreen) {
+        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+            //save previous frame
+            prevFrame = currCell.image1.frame;
+            [currCell.image1 setFrame:[[UIScreen mainScreen] bounds]];
+        }completion:^(BOOL finished){
+            isFullScreen = true;
+        }];
+        return;
+    } else {
+        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+            [currCell.image1 setFrame:prevFrame];
+        }completion:^(BOOL finished){
+            isFullScreen = false;
+        }];
+        return;
+    }
+}
+
+
+- (void) chooseCell:(TOTPostCell *)currCell1 andImage:(UIImage *) chosen {
+    if (chosen == currCell1.image1.image) {
+        
+    } else if (chosen == currCell1.image2.image) {
+        
+    } else {
+        NSLog(@"This isn't either of the images. What happened?");
+    }
+}
+
+
+
+
 
 
 - (void) getPosts {

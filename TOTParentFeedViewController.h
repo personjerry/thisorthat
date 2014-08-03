@@ -7,11 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TOTPostCell.h"
 
-@interface TOTParentFeedViewController : UITableViewController
+@interface TOTParentFeedViewController : UITableViewController <UIGestureRecognizerDelegate> {
+
+UITapGestureRecognizer *tap;
+bool isFullScreen;
+CGRect prevFrame;
+
+}
 
 @property (nonatomic, strong) NSMutableArray *postArray;
 @property (nonatomic) NSInteger reloadOffset;
+@property (nonatomic, strong) TOTPostCell *currCell;
 
 
 @end
