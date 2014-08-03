@@ -17,5 +17,9 @@
 + (UIColor *) TOTPurpleColor {
     return [UIColor colorWithRed:88.0/255.0 green:42.0/255.0 blue:153.0/255.0 alpha:1.0];
 }
++ (UIColor *) TOTLavenderColor {
+    return [UIColor colorWithRed:216.0/255.0 green:188.0/255.0 blue:255.0/255.0 alpha:1];
+}
+
 
 @end

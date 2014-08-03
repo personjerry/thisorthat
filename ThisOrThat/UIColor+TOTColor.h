@@ -12,5 +12,5 @@
 
 + (UIColor *) TOTBlueColor;
 + (UIColor *) TOTPurpleColor;
-
++ (UIColor *) TOTLavenderColor;
 @end

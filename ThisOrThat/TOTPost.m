@@ -9,5 +9,7 @@
 #import "TOTPost.h"
 
 @implementation TOTPost
-
+- (NSString *)collectionName {
+    return @"document/posts";
+}
 @end

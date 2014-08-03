@@ -27,6 +27,7 @@
 		C4A62DD9198D79A500AD07C5 /* TOTLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4A62DD7198D79A500AD07C5 /* TOTLoginViewController.xib */; };
 		C4A62DDD198DC0DC00AD07C5 /* PKImageBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C4A62DDC198DC0DC00AD07C5 /* PKImageBundle.bundle */; };
 		C4A62DE0198E00C900AD07C5 /* UIColor+TOTColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A62DDF198E00C900AD07C5 /* UIColor+TOTColor.m */; };
+		C4A62DE3198E1F3500AD07C5 /* UIImage+TOTImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A62DE2198E1F3500AD07C5 /* UIImage+TOTImage.m */; };
 		C5628E0B33FC4585B9CF3FE9 /* libPods-ThisOrThat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9104F968E4C42B5A301D40A /* libPods-ThisOrThat.a */; };
 		CCD18CC2198D73D9006A79F6 /* TOTFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD18CC1198D73D9006A79F6 /* TOTFriendsViewController.m */; };
 		CCD18CC8198D74A3006A79F6 /* TOTParentFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD18CC7198D74A3006A79F6 /* TOTParentFeedViewController.m */; };
@@ -76,6 +77,8 @@
 		C4A62DDC198DC0DC00AD07C5 /* PKImageBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PKImageBundle.bundle; sourceTree = "<group>"; };
 		C4A62DDE198E00C900AD07C5 /* UIColor+TOTColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TOTColor.h"; sourceTree = "<group>"; };
 		C4A62DDF198E00C900AD07C5 /* UIColor+TOTColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TOTColor.m"; sourceTree = "<group>"; };
+		C4A62DE1198E1F3500AD07C5 /* UIImage+TOTImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TOTImage.h"; sourceTree = "<group>"; };
+		C4A62DE2198E1F3500AD07C5 /* UIImage+TOTImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TOTImage.m"; sourceTree = "<group>"; };
 		CCD18CC0198D73D9006A79F6 /* TOTFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTFriendsViewController.h; sourceTree = "<group>"; };
 		CCD18CC1198D73D9006A79F6 /* TOTFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTFriendsViewController.m; sourceTree = "<group>"; };
 		CCD18CC6198D74A3006A79F6 /* TOTParentFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOTParentFeedViewController.h; path = ../TOTParentFeedViewController.h; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 				C4118644198D6FAD0090E018 /* TOTAppDelegate.m */,
 				C4A62DDE198E00C900AD07C5 /* UIColor+TOTColor.h */,
 				C4A62DDF198E00C900AD07C5 /* UIColor+TOTColor.m */,
+				C4A62DE1198E1F3500AD07C5 /* UIImage+TOTImage.h */,
+				C4A62DE2198E1F3500AD07C5 /* UIImage+TOTImage.m */,
 				C4A62DD5198D79A500AD07C5 /* TOTLoginViewController.h */,
 				C4A62DD6198D79A500AD07C5 /* TOTLoginViewController.m */,
 				C4A62DD7198D79A500AD07C5 /* TOTLoginViewController.xib */,
@@ -390,6 +395,7 @@
 				CCD18CC8198D74A3006A79F6 /* TOTParentFeedViewController.m in Sources */,
 				C411864E198D6FAD0090E018 /* TOTSnapViewController.m in Sources */,
 				C4A62DE0198E00C900AD07C5 /* UIColor+TOTColor.m in Sources */,
+				C4A62DE3198E1F3500AD07C5 /* UIImage+TOTImage.m in Sources */,
 				C4118645198D6FAD0090E018 /* TOTAppDelegate.m in Sources */,
 				C4118651198D6FAD0090E018 /* TOTSettingsViewController.m in Sources */,
 				CCD18CC2198D73D9006A79F6 /* TOTFriendsViewController.m in Sources */,

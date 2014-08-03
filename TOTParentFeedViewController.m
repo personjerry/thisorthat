@@ -73,7 +73,6 @@
     cell.category.text = [[self.postArray objectAtIndex:indexPath.row] category];
     cell.image1.image = [[self.postArray objectAtIndex:indexPath.row] image1];
     cell.image2.image = [[self.postArray objectAtIndex:indexPath.row] image2];
-    cell.profileIcon.image = [[self.postArray objectAtIndex:indexPath.row] profileIcon];
     cell.description.text = [[self.postArray objectAtIndex:indexPath.row] description];
     
     return cell;
