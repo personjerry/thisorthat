@@ -9,7 +9,10 @@
 #import "TOTPost.h"
 
 @implementation TOTPost
+- (NSString *)collectionName {
+    return @"document/posts";
+}
 
-@synthesize user, category, image1, image2, profileIcon, description;
+@synthesize user, category, image1, image2, description;
 
 @end

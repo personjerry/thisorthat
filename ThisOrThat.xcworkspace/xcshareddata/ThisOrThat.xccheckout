@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>6E9143B1-38C8-4FFB-B167-9259F6A6D686</string>
+	<string>E0B528E6-8E83-47EB-8104-1BB24D139D48</string>
 	<key>IDESourceControlProjectName</key>
 	<string>ThisOrThat</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>5565C751-F8BA-4ABE-85E8-A172B41042C1</key>
-		<string>https://github.com/personjerry/thisorthat.git</string>
+		<key>FBB7780E-49FE-4FB9-A62F-1ACFCFD34181</key>
+		<string>https://github.com/personjerry/thisorthat</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>ThisOrThat.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>5565C751-F8BA-4ABE-85E8-A172B41042C1</key>
+		<key>FBB7780E-49FE-4FB9-A62F-1ACFCFD34181</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/personjerry/thisorthat.git</string>
+	<string>https://github.com/personjerry/thisorthat</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>5565C751-F8BA-4ABE-85E8-A172B41042C1</string>
+	<string>FBB7780E-49FE-4FB9-A62F-1ACFCFD34181</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>5565C751-F8BA-4ABE-85E8-A172B41042C1</string>
+			<string>FBB7780E-49FE-4FB9-A62F-1ACFCFD34181</string>
 			<key>IDESourceControlWCCName</key>
-			<string>ThisOrThat</string>
+			<string>thisorthat</string>
 		</dict>
 	</array>
 </dict>

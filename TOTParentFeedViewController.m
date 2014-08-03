@@ -94,10 +94,16 @@
     
     // Configure the cell...
     cell.user.text = [[self.postArray objectAtIndex:indexPath.row] user];
+    BAAFile *picture = [[BAAFile alloc] init];
+    picture.fileId = [[self.postArray objectAtIndex:indexPath.row] image1];
+    [picture loadFileWithCompletion:^(NSData *data, NSError *error) {
+        cell.image1.image = [[UIImage alloc] initWithData:data];
+    }];
+    picture.fileId = [[self.postArray objectAtIndex:indexPath.row] image2];
+    [picture loadFileWithCompletion:^(NSData *data, NSError *error) {
+        cell.image2.image = [[UIImage alloc] initWithData:data];
+    }];
     cell.category.text = [[self.postArray objectAtIndex:indexPath.row] category];
-    cell.image1.image = [[self.postArray objectAtIndex:indexPath.row] image1];
-    cell.image2.image = [[self.postArray objectAtIndex:indexPath.row] image2];
-    cell.profileIcon.image = [[self.postArray objectAtIndex:indexPath.row] profileIcon];
     cell.description.text = [[self.postArray objectAtIndex:indexPath.row] description];
     cell.description.editable = NO;
 
@@ -243,12 +249,12 @@
     post2.category = @"Clothes";
     post3.category = @"Food";
     
-    post1.image1 = [UIImage imageNamed:@"testimage1.jpg"];
-    post1.image2 = [UIImage imageNamed:@"testimage2.jpg"];
-    post2.image1 = [UIImage imageNamed:@"testimage2.jpg"];
-    post2.image2 = [UIImage imageNamed:@"testimage3.jpg"];
-    post3.image1 = [UIImage imageNamed:@"testimage3.jpg"];
-    post3.image2 = [UIImage imageNamed:@"testimage1.jpg"];
+    post1.image1 = @"164da411-a95b-4e2f-b8ff-7dd6bbf944e2";
+    post1.image2 = @"56d18bb0-42ca-4342-9acf-09f9b32b9c9a";
+    post2.image1 = @"6bd42fe5-58e2-4105-a5d0-6cb6d1181c38";
+    post2.image2 = @"76f77c19-5934-4afe-baa5-be7192f16b82";
+    post3.image1 = @"a4a3abf7-a877-45df-a0b5-5d66792dcd07";
+    post3.image2 = @"6bd42fe5-58e2-4105-a5d0-6cb6d1181c38";
     
     
     [self.postArray addObject:post1];
@@ -275,12 +281,12 @@
     post2.category = @"Clothes";
     post3.category = @"Food";
     
-    post1.image1 = [UIImage imageNamed:@"testimage4.jpg"];
-    post1.image2 = [UIImage imageNamed:@"testimage5.png"];
-    post2.image1 = [UIImage imageNamed:@"testimage5.png"];
-    post2.image2 = [UIImage imageNamed:@"testimage6.jpg"];
-    post3.image1 = [UIImage imageNamed:@"testimage6.jpg"];
-    post3.image2 = [UIImage imageNamed:@"testimage4.jpg"];
+    post1.image1 = @"48bc049c-b022-4ab4-9392-226b4ddf7951";
+    post1.image2 = @"dbed5a7c-0f31-42b7-b58e-5540438d1499";
+    post2.image1 = @"a265a897-25da-4598-bb10-33c1d0482dcb";
+    post2.image2 = @"25faba99-cb39-4ac1-87dc-aa4078093e1c";
+    post3.image1 = @"6b0577a0-f7fb-4344-a52a-7207cc47c239";
+    post3.image2 = @"715db931-f491-4abb-a3fd-4651ae2bd03e";
     
     
     [self.postArray addObject:post1];

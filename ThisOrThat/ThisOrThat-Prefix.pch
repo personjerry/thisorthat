@@ -14,4 +14,6 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import "BAAClient.h"
+    #import "UIColor+TOTColor.h"
+    #import "UIImage+TOTImage.h"
 #endif

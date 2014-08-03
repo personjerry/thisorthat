@@ -1,5 +1,5 @@
 //
-//  TOTSecondViewController.h
+//  UIColor+TOTColor.h
 //  ThisOrThat
 //
 //  Created by Jerry Liu on 8/2/14.
@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TOTSettingsViewController : UIViewController
+@interface UIColor (TOTColor)
 
++ (UIColor *) TOTBlueColor;
++ (UIColor *) TOTPurpleColor;
++ (UIColor *) TOTLavenderColor;
 @end
