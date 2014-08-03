@@ -12,7 +12,6 @@
 @interface TOTParentFeedViewController : UITableViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate> {
 
     UITapGestureRecognizer *tap1;
-    UITapGestureRecognizer *tap2;
     bool isFullScreen1;
     bool isFullScreen2;
     CGRect prevFrame1;
@@ -26,7 +25,6 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *postArray;
 @property (nonatomic) NSInteger reloadOffset;
-@property (nonatomic, strong) TOTPostCell *currCell;
 
 
 @end
