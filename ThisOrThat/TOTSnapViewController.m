@@ -182,7 +182,7 @@
     post.category = category;
     post.image1 = imageId1;
     post.image2 = imageId2;
-    post.points = [[self.pointsAllocation titleForSegmentAtIndex:[self.pointsAllocation selectedSegmentIndex]] intValue];
+    post.points = [[self.pointsAllocation titleForSegmentAtIndex:[self.pointsAllocation selectedSegmentIndex]] intValue] * 600.0 + [[NSDate date] timeIntervalSince1970];
     post.description = self.descriptionField.text;
     
     [post saveObjectWithCompletion:^(TOTPost *p, NSError *error) {
