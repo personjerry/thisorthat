@@ -164,7 +164,6 @@
         {
             NSLog(@"HELLO, image1 was tapped");
             if (!isFullScreen1) {
-                [self centerTable:[self.tableView indexPathForRowAtPoint:[tap locationInView:self.tableView]]];
                 [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
                     //save previous frame
                     prevFrame1 = cell.image1.frame;
@@ -193,12 +192,17 @@
 }
 
 
-- (void)centerTable:(NSIndexPath *) pathForCenterCell {
-    //NSIndexPath *pathForCenterCell = [self.tableView indexPathForRowAtPoint:[gestureRecognizer locationInView:self.tableView]];
-    [self.tableView scrollToRowAtIndexPath:pathForCenterCell atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
-    [self.tableView setContentOffset:CGPointMake(0, -50) animated:YES];
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        self.centerTable;
+    });
 }
 
+- (void)centerTable {
+    NSIndexPath *pathForCenterCell = [self.tableView indexPathForRowAtPoint:CGPointMake(CGRectGetMidX(self.tableView.bounds), CGRectGetMidY(self.tableView.bounds))];
+    
+    [self.tableView scrollToRowAtIndexPath:pathForCenterCell atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+}
 
 
 

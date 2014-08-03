@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TOTPostCell.h"
 
-@interface TOTParentFeedViewController : UITableViewController <UIGestureRecognizerDelegate> {
+@interface TOTParentFeedViewController : UITableViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate> {
 
     UITapGestureRecognizer *tap1;
     UITapGestureRecognizer *tap2;
