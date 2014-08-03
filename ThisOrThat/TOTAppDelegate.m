@@ -14,7 +14,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
     if (TARGET_IPHONE_SIMULATOR) {
     [BaasBox setBaseURL:@"http://localhost:9000"
                 appCode:@"1234567890"];
