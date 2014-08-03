@@ -9,6 +9,8 @@
 #import "TOTParentFeedViewController.h"
 #import "TOTPost.h"
 #import "TOTPostCell.h"
+//#import <objc/runtime.h>
+#import "QuartzCore/QuartzCore.h"
 
 @interface TOTParentFeedViewController ()
 
@@ -31,9 +33,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.reloadOffset = 1;
+    self.reloadOffset = 20;
     self.postArray = [[NSMutableArray alloc] init];
     [self getPosts];
+    
+    self.view.userInteractionEnabled = YES;
+    
+    isFullScreen1 = false;
+    isFullScreen2 = false;
+    swipe1 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeft:)];
+    [swipe1 setDirection:UISwipeGestureRecognizerDirectionLeft];
+    swipe2 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRight:)];
+    [swipe2 setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.tableView addGestureRecognizer:swipe1];
+    [self.tableView addGestureRecognizer:swipe2];
+    
+    tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageWasTapped:)];
+    tap1.numberOfTapsRequired = 2;
+    [self.tableView addGestureRecognizer:tap1];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -77,14 +94,141 @@
     
     // Configure the cell...
     cell.user.text = [[self.postArray objectAtIndex:indexPath.row] user];
+    BAAFile *picture = [[BAAFile alloc] init];
+    picture.fileId = [[self.postArray objectAtIndex:indexPath.row] image1];
+    [picture loadFileWithCompletion:^(NSData *data, NSError *error) {
+        cell.image1.image = [[UIImage alloc] initWithData:data];
+    }];
+    picture.fileId = [[self.postArray objectAtIndex:indexPath.row] image2];
+    [picture loadFileWithCompletion:^(NSData *data, NSError *error) {
+        cell.image2.image = [[UIImage alloc] initWithData:data];
+    }];
     cell.category.text = [[self.postArray objectAtIndex:indexPath.row] category];
-    cell.image1.image = [[self.postArray objectAtIndex:indexPath.row] image1];
-    cell.image2.image = [[self.postArray objectAtIndex:indexPath.row] image2];
     cell.description.text = [[self.postArray objectAtIndex:indexPath.row] description];
     cell.description.editable = NO;
-    
+
     return cell;
 }
+
+- (void) imageWasTapped: (UITapGestureRecognizer *) tap {
+    CGPoint tapLocation = [tap locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:tapLocation];
+    if (indexPath)
+    {
+        TOTPostCell *cell = (TOTPostCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+        CGRect image1RectInTableViewCoorSys = [self.tableView convertRect:cell.image1.frame fromView:cell];
+        CGRect image2RectInTableViewCoorSys = [self.tableView convertRect:cell.image2.frame fromView:cell];
+        if (CGRectContainsPoint(image1RectInTableViewCoorSys, tapLocation))
+        {
+            NSLog(@"HELLO, image1 was tapped.");
+            if (!isFullScreen1) {
+                [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+                    //save previous frame
+                    prevFrame1 = cell.image1.frame;
+                    self.view.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+                    [cell.image1 setFrame:[[UIScreen mainScreen] applicationFrame]];
+                    self.tableView.scrollEnabled = NO;
+                    cell.image1.layer.zPosition = 2;
+                }completion:^(BOOL finished){
+                    isFullScreen1 = true;
+                }];
+                return;
+            } else {
+                [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+                    [cell.image1 setFrame:prevFrame1];
+                    cell.image1.layer.zPosition = 1;
+                }completion:^(BOOL finished){
+                    isFullScreen1 = false;
+                }];
+                self.tableView.scrollEnabled = YES;
+                return;
+            }
+        } else if (CGRectContainsPoint(image2RectInTableViewCoorSys, tapLocation)) {
+            NSLog(@"HELLO, image2 was tapped.");
+            if (!isFullScreen2) {
+                [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+                    //save previous frame
+                    prevFrame2 = cell.image2.frame;
+                    self.view.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+                    [cell.image2 setFrame:[[UIScreen mainScreen] applicationFrame]];
+                    self.tableView.scrollEnabled = NO;
+                    cell.image2.layer.zPosition = 2;
+                }completion:^(BOOL finished){
+                    isFullScreen2 = true;
+                }];
+                return;
+            } else {
+                [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+                    [cell.image2 setFrame:prevFrame2];
+                    cell.image2.layer.zPosition = 1;
+                }completion:^(BOOL finished){
+                    isFullScreen2 = false;
+                }];
+                self.tableView.scrollEnabled = YES;
+                return;
+            }
+        }
+    }
+}
+
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [self centerTable:velocity.y - scrollView.decelerationRate];
+    });
+}
+
+- (void)centerTable: (float) velocity {
+    [self.tableView setContentOffset:CGPointMake(0, velocity * 400) animated:YES];
+    NSIndexPath *pathForCenterCell = [self.tableView indexPathForRowAtPoint:CGPointMake(CGRectGetMidX(self.tableView.bounds), CGRectGetMidY(self.tableView.bounds))];
+    
+    [self.tableView scrollToRowAtIndexPath:pathForCenterCell atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+}
+
+
+- (void) swipeLeft:(UISwipeGestureRecognizer *) swipe {
+    NSLog(@"Left swipe");
+    CGPoint swipeLocation = [swipe locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:swipeLocation];
+    if (indexPath)
+    {
+        TOTPostCell *cell = (TOTPostCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+        CGRect image1RectInTableViewCoorSys = [self.tableView convertRect:cell.image1.frame fromView:cell];
+        if (CGRectContainsPoint(image1RectInTableViewCoorSys, swipeLocation)) {
+            NSLog(@"HELLO, image1 was swiped left.");
+            [self chooseLeft];
+        }
+    }
+    
+}
+
+- (void) swipeRight:(UISwipeGestureRecognizer *) swipe {
+    NSLog(@"Right swipe");
+    CGPoint swipeLocation = [swipe locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:swipeLocation];
+    if (indexPath)
+    {
+        TOTPostCell *cell = (TOTPostCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+        CGRect image2RectInTableViewCoorSys = [self.tableView convertRect:cell.image2.frame fromView:cell];
+        if (CGRectContainsPoint(image2RectInTableViewCoorSys, swipeLocation)) {
+            NSLog(@"HELLO, image2 was swiped right.");
+            [self chooseRight];
+        }
+        
+    }
+}
+
+
+- (void) chooseLeft {
+    NSLog(@"Chose left");
+}
+
+- (void) chooseRight {
+    NSLog(@"Chose right");
+}
+
+
+
 
 
 - (void) getPosts {
@@ -105,12 +249,12 @@
     post2.category = @"Clothes";
     post3.category = @"Food";
     
-    post1.image1 = [UIImage imageNamed:@"testimage1.jpg"];
-    post1.image2 = [UIImage imageNamed:@"testimage2.jpg"];
-    post2.image1 = [UIImage imageNamed:@"testimage2.jpg"];
-    post2.image2 = [UIImage imageNamed:@"testimage3.jpg"];
-    post3.image1 = [UIImage imageNamed:@"testimage3.jpg"];
-    post3.image2 = [UIImage imageNamed:@"testimage1.jpg"];
+    post1.image1 = @"164da411-a95b-4e2f-b8ff-7dd6bbf944e2";
+    post1.image2 = @"56d18bb0-42ca-4342-9acf-09f9b32b9c9a";
+    post2.image1 = @"6bd42fe5-58e2-4105-a5d0-6cb6d1181c38";
+    post2.image2 = @"76f77c19-5934-4afe-baa5-be7192f16b82";
+    post3.image1 = @"a4a3abf7-a877-45df-a0b5-5d66792dcd07";
+    post3.image2 = @"6bd42fe5-58e2-4105-a5d0-6cb6d1181c38";
     
     
     [self.postArray addObject:post1];
@@ -137,12 +281,12 @@
     post2.category = @"Clothes";
     post3.category = @"Food";
     
-    post1.image1 = [UIImage imageNamed:@"testimage4.jpg"];
-    post1.image2 = [UIImage imageNamed:@"testimage5.png"];
-    post2.image1 = [UIImage imageNamed:@"testimage5.png"];
-    post2.image2 = [UIImage imageNamed:@"testimage6.jpg"];
-    post3.image1 = [UIImage imageNamed:@"testimage6.jpg"];
-    post3.image2 = [UIImage imageNamed:@"testimage4.jpg"];
+    post1.image1 = @"48bc049c-b022-4ab4-9392-226b4ddf7951";
+    post1.image2 = @"dbed5a7c-0f31-42b7-b58e-5540438d1499";
+    post2.image1 = @"a265a897-25da-4598-bb10-33c1d0482dcb";
+    post2.image2 = @"25faba99-cb39-4ac1-87dc-aa4078093e1c";
+    post3.image1 = @"6b0577a0-f7fb-4344-a52a-7207cc47c239";
+    post3.image2 = @"715db931-f491-4abb-a3fd-4651ae2bd03e";
     
     
     [self.postArray addObject:post1];
