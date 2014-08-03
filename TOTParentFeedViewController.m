@@ -40,9 +40,9 @@
     self.view.userInteractionEnabled = YES;
     
     
-    /*isFullScreen1 = false;
+    isFullScreen1 = false;
     isFullScreen2 = false;
-    tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgToFullScreen1)];
+    /*tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgToFullScreen1)];
     tap1.numberOfTapsRequired = 1;
     tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgToFullScreen2)];
     swipe1 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(chooseLeft)];
@@ -155,18 +155,49 @@
 
 - (void) imageWasTapped: (UITapGestureRecognizer *) tap {
     CGPoint tapLocation = [tap locationInView:self.tableView];
-    NSIndexPath *indexPath = [self.tableView indexPathForItemAtPoint:tapLocation];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:tapLocation];
     if (indexPath)
     {
-        MyCollectionViewCell *cell = (MyCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
-        CGRect mySubviewRectInCollectionViewCoorSys = [self.collectionView convertRect:cell.mySubview.frame fromView:cell];
-        if (CGRectContainsPoint(mySubviewRectInCollectionViewCoorSys, tapLocation))
+        TOTPostCell *cell = (TOTPostCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+        CGRect image1RectInTableViewCoorSys = [self.tableView convertRect:cell.image1.frame fromView:cell];
+        if (CGRectContainsPoint(image1RectInTableViewCoorSys, tapLocation))
         {
+            NSLog(@"HELLO, image1 was tapped");
+            if (!isFullScreen1) {
+                [self centerTable:[self.tableView indexPathForRowAtPoint:[tap locationInView:self.tableView]]];
+                [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+                    //save previous frame
+                    prevFrame1 = cell.image1.frame;
+                    self.view.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+                    [cell.image1 setFrame:[[UIScreen mainScreen] applicationFrame]];
+                    self.tableView.scrollEnabled = NO;
+                    cell.image1.layer.zPosition = 2;
+                }completion:^(BOOL finished){
+                    isFullScreen1 = true;
+                }];
+                return;
+            } else {
+                [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+                    [cell.image1 setFrame:prevFrame1];
+                    cell.image1.layer.zPosition = 1;
+                }completion:^(BOOL finished){
+                    isFullScreen1 = false;
+                }];
+                self.tableView.scrollEnabled = YES;
+                return;
+            }
+
             // Yay! My subview was tapped!
         }
     }
 }
 
+
+- (void)centerTable:(NSIndexPath *) pathForCenterCell {
+    //NSIndexPath *pathForCenterCell = [self.tableView indexPathForRowAtPoint:[gestureRecognizer locationInView:self.tableView]];
+    [self.tableView scrollToRowAtIndexPath:pathForCenterCell atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    [self.tableView setContentOffset:CGPointMake(0, -50) animated:YES];
+}
 
 
 
