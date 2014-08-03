@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A2FD33282AD4F408598C9D0 /* libPods-ThisOrThat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9104F968E4C42B5A301D40A /* libPods-ThisOrThat.a */; };
 		B13E2E96F5D74AAB9D3A2D20 /* libPods-ThisOrThatTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F78DD3B34B404F1F95A67EE5 /* libPods-ThisOrThatTests.a */; };
 		C4118635198D6FAD0090E018 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4118634198D6FAD0090E018 /* Foundation.framework */; };
 		C4118637198D6FAD0090E018 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4118636198D6FAD0090E018 /* CoreGraphics.framework */; };
@@ -32,6 +33,9 @@
 		CC0DBB4B198DBCB900FE589A /* testimage4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC0DBB48198DBCB900FE589A /* testimage4.jpg */; };
 		CC0DBB4C198DBCB900FE589A /* testimage5.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0DBB49198DBCB900FE589A /* testimage5.png */; };
 		CC0DBB4D198DBCB900FE589A /* testimage6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC0DBB4A198DBCB900FE589A /* testimage6.jpg */; };
+		CC0DBB51198E761D00FE589A /* testimage1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC0DBB4E198E761D00FE589A /* testimage1.jpg */; };
+		CC0DBB52198E761D00FE589A /* testimage2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC0DBB4F198E761D00FE589A /* testimage2.jpg */; };
+		CC0DBB53198E761D00FE589A /* testimage3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC0DBB50198E761D00FE589A /* testimage3.jpg */; };
 		CCD18CC2198D73D9006A79F6 /* TOTFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD18CC1198D73D9006A79F6 /* TOTFriendsViewController.m */; };
 		CCD18CC8198D74A3006A79F6 /* TOTParentFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD18CC7198D74A3006A79F6 /* TOTParentFeedViewController.m */; };
 		CCD18CCB198D74BD006A79F6 /* TOTFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD18CCA198D74BD006A79F6 /* TOTFeedViewController.m */; };
@@ -85,6 +89,9 @@
 		CC0DBB48198DBCB900FE589A /* testimage4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = testimage4.jpg; path = Images.xcassets/testimage4.jpg; sourceTree = "<group>"; };
 		CC0DBB49198DBCB900FE589A /* testimage5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = testimage5.png; path = Images.xcassets/testimage5.png; sourceTree = "<group>"; };
 		CC0DBB4A198DBCB900FE589A /* testimage6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = testimage6.jpg; path = Images.xcassets/testimage6.jpg; sourceTree = "<group>"; };
+		CC0DBB4E198E761D00FE589A /* testimage1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = testimage1.jpg; path = Images.xcassets/testimage1.jpg; sourceTree = "<group>"; };
+		CC0DBB4F198E761D00FE589A /* testimage2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = testimage2.jpg; path = Images.xcassets/testimage2.jpg; sourceTree = "<group>"; };
+		CC0DBB50198E761D00FE589A /* testimage3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = testimage3.jpg; path = Images.xcassets/testimage3.jpg; sourceTree = "<group>"; };
 		CCD18CC0198D73D9006A79F6 /* TOTFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTFriendsViewController.h; sourceTree = "<group>"; };
 		CCD18CC1198D73D9006A79F6 /* TOTFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTFriendsViewController.m; sourceTree = "<group>"; };
 		CCD18CC6198D74A3006A79F6 /* TOTParentFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOTParentFeedViewController.h; path = ../TOTParentFeedViewController.h; sourceTree = "<group>"; };
@@ -112,7 +119,7 @@
 				C4118637198D6FAD0090E018 /* CoreGraphics.framework in Frameworks */,
 				C4118639198D6FAD0090E018 /* UIKit.framework in Frameworks */,
 				C4118635198D6FAD0090E018 /* Foundation.framework in Frameworks */,
-				C5628E0B33FC4585B9CF3FE9 /* libPods-ThisOrThat.a in Frameworks */,
+				5A2FD33282AD4F408598C9D0 /* libPods-ThisOrThat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +205,9 @@
 				CCD18CD3198D7504006A79F6 /* TOTPost.m */,
 				C4118652198D6FAD0090E018 /* Images.xcassets */,
 				CC0DBB48198DBCB900FE589A /* testimage4.jpg */,
+				CC0DBB4E198E761D00FE589A /* testimage1.jpg */,
+				CC0DBB4F198E761D00FE589A /* testimage2.jpg */,
+				CC0DBB50198E761D00FE589A /* testimage3.jpg */,
 				CC0DBB49198DBCB900FE589A /* testimage5.png */,
 				CC0DBB4A198DBCB900FE589A /* testimage6.jpg */,
 				C411863B198D6FAD0090E018 /* Supporting Files */,
@@ -316,10 +326,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC0DBB4D198DBCB900FE589A /* testimage6.jpg in Resources */,
+				CC0DBB52198E761D00FE589A /* testimage2.jpg in Resources */,
+				CC0DBB51198E761D00FE589A /* testimage1.jpg in Resources */,
 				C4118653198D6FAD0090E018 /* Images.xcassets in Resources */,
 				C4118648198D6FAD0090E018 /* Main_iPhone.storyboard in Resources */,
 				CC0DBB4B198DBCB900FE589A /* testimage4.jpg in Resources */,
 				C4A62DD9198D79A500AD07C5 /* TOTLoginViewController.xib in Resources */,
+				CC0DBB53198E761D00FE589A /* testimage3.jpg in Resources */,
 				C4A62DDD198DC0DC00AD07C5 /* PKImageBundle.bundle in Resources */,
 				C411863F198D6FAD0090E018 /* InfoPlist.strings in Resources */,
 				CC0DBB4C198DBCB900FE589A /* testimage5.png in Resources */,

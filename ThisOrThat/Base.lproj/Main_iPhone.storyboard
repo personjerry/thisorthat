@@ -12,8 +12,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="497" id="xKq-C8-Tfq" customClass="TOTPostCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="497" id="xKq-C8-Tfq" customClass="TOTPostCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="497"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xKq-C8-Tfq" id="3dL-Uv-q4c">
@@ -23,6 +24,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hxj-Xd-AWO">
                                             <rect key="frame" x="0.0" y="137" width="160" height="160"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <gestureRecognizers/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MTV-Wb-OOD">
                                             <rect key="frame" x="160" y="137" width="160" height="160"/>
@@ -53,6 +55,7 @@
                                         </textView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="category" destination="0M2-3Y-QGB" id="2vy-pl-aeh"/>
                                     <outlet property="description" destination="ojg-NQ-sqP" id="Q4C-xy-v6H"/>
@@ -65,6 +68,9 @@
                         </prototypes>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Feed" image="first" id="u1e-5L-l1D"/>
+                    <connections>
+                        <outlet property="tableView" destination="Wkj-NR-dmm" id="FTT-ed-eZH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
             </objects>
@@ -79,7 +85,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="497" id="CLI-wb-5VE" customClass="TOTPostCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="497" id="CLI-wb-5VE" customClass="TOTPostCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="497"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CLI-wb-5VE" id="mgx-m0-wiQ">
