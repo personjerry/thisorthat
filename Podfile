@@ -3,9 +3,11 @@
 
 target "ThisOrThat" do
     pod 'BaasBoxSDK', '~> 0.8'
+    pod 'PKImagePicker', '~> 0.0.2'
 end
 
 target "ThisOrThatTests" do
     pod 'BaasBoxSDK', '~> 0.8'
+    pod 'PKImagePicker', '~> 0.0.2'
 end
 

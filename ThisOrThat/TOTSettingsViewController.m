@@ -8,11 +8,11 @@
 
 #import "TOTSettingsViewController.h"
 
-@interface TOTSecondViewController ()
+@interface TOTSettingsViewController ()
 
 @end
 
-@implementation TOTSecondViewController
+@implementation TOTSettingsViewController
 
 - (void)viewDidLoad
 {
