@@ -16,7 +16,7 @@
 
 @implementation TOTParentFeedViewController
 
-@synthesize postArray;
+@synthesize postArray, reloadOffset;
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -31,6 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.reloadOffset = 20;
     self.postArray = [[NSMutableArray alloc] init];
     [self getPosts];
     
@@ -65,6 +66,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSInteger NumberOfLoadedRows = [tableView numberOfRowsInSection:indexPath.section];
+    if (indexPath.row >= NumberOfLoadedRows - self.reloadOffset) {
+        [self fetchMorePosts];
+    }
+    
     static NSString *CellIdentifier = @"Cell";
     TOTPostCell *cell = (TOTPostCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
@@ -111,6 +117,13 @@
     [self.postArray addObject:post2];
     [self.postArray addObject:post3];
 }
+
+- (void) fetchMorePosts {
+    // Fill in this method
+    
+    //[self.tableView reloadData];
+}
+
 
 
 /*
