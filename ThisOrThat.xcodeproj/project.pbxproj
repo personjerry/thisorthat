@@ -29,6 +29,9 @@
 		C4A62DE0198E00C900AD07C5 /* UIColor+TOTColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A62DDF198E00C900AD07C5 /* UIColor+TOTColor.m */; };
 		C4A62DE3198E1F3500AD07C5 /* UIImage+TOTImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A62DE2198E1F3500AD07C5 /* UIImage+TOTImage.m */; };
 		C5628E0B33FC4585B9CF3FE9 /* libPods-ThisOrThat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9104F968E4C42B5A301D40A /* libPods-ThisOrThat.a */; };
+		CC0DBB4B198DBCB900FE589A /* testimage4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC0DBB48198DBCB900FE589A /* testimage4.jpg */; };
+		CC0DBB4C198DBCB900FE589A /* testimage5.png in Resources */ = {isa = PBXBuildFile; fileRef = CC0DBB49198DBCB900FE589A /* testimage5.png */; };
+		CC0DBB4D198DBCB900FE589A /* testimage6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC0DBB4A198DBCB900FE589A /* testimage6.jpg */; };
 		CCD18CC2198D73D9006A79F6 /* TOTFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD18CC1198D73D9006A79F6 /* TOTFriendsViewController.m */; };
 		CCD18CC8198D74A3006A79F6 /* TOTParentFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD18CC7198D74A3006A79F6 /* TOTParentFeedViewController.m */; };
 		CCD18CCB198D74BD006A79F6 /* TOTFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD18CCA198D74BD006A79F6 /* TOTFeedViewController.m */; };
@@ -79,6 +82,9 @@
 		C4A62DDF198E00C900AD07C5 /* UIColor+TOTColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TOTColor.m"; sourceTree = "<group>"; };
 		C4A62DE1198E1F3500AD07C5 /* UIImage+TOTImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TOTImage.h"; sourceTree = "<group>"; };
 		C4A62DE2198E1F3500AD07C5 /* UIImage+TOTImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TOTImage.m"; sourceTree = "<group>"; };
+		CC0DBB48198DBCB900FE589A /* testimage4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = testimage4.jpg; path = Images.xcassets/testimage4.jpg; sourceTree = "<group>"; };
+		CC0DBB49198DBCB900FE589A /* testimage5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = testimage5.png; path = Images.xcassets/testimage5.png; sourceTree = "<group>"; };
+		CC0DBB4A198DBCB900FE589A /* testimage6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = testimage6.jpg; path = Images.xcassets/testimage6.jpg; sourceTree = "<group>"; };
 		CCD18CC0198D73D9006A79F6 /* TOTFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOTFriendsViewController.h; sourceTree = "<group>"; };
 		CCD18CC1198D73D9006A79F6 /* TOTFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOTFriendsViewController.m; sourceTree = "<group>"; };
 		CCD18CC6198D74A3006A79F6 /* TOTParentFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOTParentFeedViewController.h; path = ../TOTParentFeedViewController.h; sourceTree = "<group>"; };
@@ -191,6 +197,9 @@
 				CCD18CD2198D7504006A79F6 /* TOTPost.h */,
 				CCD18CD3198D7504006A79F6 /* TOTPost.m */,
 				C4118652198D6FAD0090E018 /* Images.xcassets */,
+				CC0DBB48198DBCB900FE589A /* testimage4.jpg */,
+				CC0DBB49198DBCB900FE589A /* testimage5.png */,
+				CC0DBB4A198DBCB900FE589A /* testimage6.jpg */,
 				C411863B198D6FAD0090E018 /* Supporting Files */,
 			);
 			path = ThisOrThat;
@@ -306,11 +315,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC0DBB4D198DBCB900FE589A /* testimage6.jpg in Resources */,
 				C4118653198D6FAD0090E018 /* Images.xcassets in Resources */,
 				C4118648198D6FAD0090E018 /* Main_iPhone.storyboard in Resources */,
+				CC0DBB4B198DBCB900FE589A /* testimage4.jpg in Resources */,
 				C4A62DD9198D79A500AD07C5 /* TOTLoginViewController.xib in Resources */,
 				C4A62DDD198DC0DC00AD07C5 /* PKImageBundle.bundle in Resources */,
 				C411863F198D6FAD0090E018 /* InfoPlist.strings in Resources */,
+				CC0DBB4C198DBCB900FE589A /* testimage5.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

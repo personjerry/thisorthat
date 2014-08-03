@@ -12,4 +12,7 @@
 - (NSString *)collectionName {
     return @"document/posts";
 }
+
+@synthesize user, category, image1, image2, description;
+
 @end

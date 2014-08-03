@@ -11,6 +11,7 @@
 @interface TOTParentFeedViewController : UITableViewController
 
 @property (nonatomic, strong) NSMutableArray *postArray;
+@property (nonatomic) NSInteger reloadOffset;
 
 
 @end
