@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PKImagePickerViewController.h"
 
-@interface TOTSnapViewController : UIImagePickerController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface TOTSnapViewController : UIImagePickerController <PKImagePickerViewControllerDelegate>
 
 @end

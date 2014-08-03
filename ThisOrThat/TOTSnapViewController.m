@@ -7,12 +7,13 @@
 //
 
 #import "TOTSnapViewController.h"
-
 @interface TOTSnapViewController ()
+
+@property (strong, nonatomic) PKImagePickerViewController *imagePickerController;
 
 @end
 
-@implementation TOTSnapViewController (CameraDelegateMethods)
+@implementation TOTSnapViewController
 
 - (void)viewDidLoad
 {
@@ -21,15 +22,20 @@
 }
 
 - (void) imagePickerControllerDidCancel: (UIImagePickerController *) picker {
-    
-    [[picker parentViewController] dismissViewControllerAnimated:YES completion: nil];
+    self.tabBarController.selectedIndex = 0;
+    [picker dismissViewControllerAnimated:YES completion: nil];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
-    UIImagePickerController * imagePicker = [[UIImagePickerController alloc] init];
-    imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    imagePicker.delegate = self;
-    [self presentViewController:imagePicker animated:YES completion: nil];
+    
+    //Clear out the UI first
+    
+    self.imagePickerController = [[PKImagePickerViewController alloc]init];
+    
+    self.imagePickerController.delegate = self;
+    
+    [self.tabBarController presentViewController:self.imagePickerController animated:YES completion:nil];
+    
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
