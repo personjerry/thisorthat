@@ -117,10 +117,18 @@
     picture.fileId = [[self.postArray objectAtIndex:indexPath.row] image1];
     [picture loadFileWithCompletion:^(NSData *data, NSError *error) {
         cell.image1.image = [[UIImage alloc] initWithData:data];
+        [cell.image1.layer setBorderColor: [[[[UIApplication sharedApplication] delegate] window].tintColor CGColor]];
+        [cell.image1.layer setBorderWidth: 1.0];
+        [cell.image1.layer setCornerRadius:30.0f];
+        [cell.image1 setClipsToBounds:YES];
     }];
     picture.fileId = [[self.postArray objectAtIndex:indexPath.row] image2];
     [picture loadFileWithCompletion:^(NSData *data, NSError *error) {
         cell.image2.image = [[UIImage alloc] initWithData:data];
+        [cell.image2.layer setBorderColor: [[[[UIApplication sharedApplication] delegate] window].tintColor CGColor]];
+        [cell.image2.layer setBorderWidth: 1.0];
+        [cell.image2.layer setCornerRadius:30.0f];
+        [cell.image2 setClipsToBounds:YES];
     }];
     cell.category.text = [[self.postArray objectAtIndex:indexPath.row] category];
     cell.description.text = [[self.postArray objectAtIndex:indexPath.row] description];
