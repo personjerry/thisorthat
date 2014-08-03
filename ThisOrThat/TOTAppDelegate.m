@@ -26,7 +26,9 @@
     
     TOTLoginViewController *vc = [[TOTLoginViewController alloc] init];
     self.window.rootViewController = vc;
+    self.window.backgroundColor = [UIColor colorWithRed:216.0/255.0 green:188.0/255.0 blue:255.0/255.0 alpha:1];
     [self.window makeKeyAndVisible];
+    [self.window setTintColor:[UIColor whiteColor]];
     
     return YES;
     // Override point for customization after application launch.

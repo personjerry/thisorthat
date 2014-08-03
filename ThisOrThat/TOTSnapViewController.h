@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "PKImagePickerViewController.h"
 
-@interface TOTSnapViewController : UIViewController <PKImagePickerViewControllerDelegate>
+@interface TOTSnapViewController : UIViewController <PKImagePickerViewControllerDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *image1;
 @property (weak, nonatomic) IBOutlet UIImageView *image2;
-@property (weak, nonatomic) IBOutlet UITextView *descriptionField;
+@property (weak, nonatomic) IBOutlet UITextField *descriptionField;
 
 @end
