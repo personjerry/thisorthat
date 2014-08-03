@@ -249,12 +249,12 @@
     post2.category = @"Clothes";
     post3.category = @"Food";
     
-    post1.image1 = @"164da411-a95b-4e2f-b8ff-7dd6bbf944e2";
-    post1.image2 = @"56d18bb0-42ca-4342-9acf-09f9b32b9c9a";
-    post2.image1 = @"6bd42fe5-58e2-4105-a5d0-6cb6d1181c38";
-    post2.image2 = @"76f77c19-5934-4afe-baa5-be7192f16b82";
-    post3.image1 = @"a4a3abf7-a877-45df-a0b5-5d66792dcd07";
-    post3.image2 = @"6bd42fe5-58e2-4105-a5d0-6cb6d1181c38";
+    post1.image1 = @"4dea2abf-204a-433b-813d-28869827f8fa";
+    post1.image2 = @"4dea2abf-204a-433b-813d-28869827f8fa";
+    post2.image1 = @"4dea2abf-204a-433b-813d-28869827f8fa";
+    post2.image2 = @"4dea2abf-204a-433b-813d-28869827f8fa";
+    post3.image1 = @"4dea2abf-204a-433b-813d-28869827f8fa";
+    post3.image2 = @"4dea2abf-204a-433b-813d-28869827f8fa";
     
     
     [self.postArray addObject:post1];
@@ -281,12 +281,12 @@
     post2.category = @"Clothes";
     post3.category = @"Food";
     
-    post1.image1 = @"48bc049c-b022-4ab4-9392-226b4ddf7951";
-    post1.image2 = @"dbed5a7c-0f31-42b7-b58e-5540438d1499";
-    post2.image1 = @"a265a897-25da-4598-bb10-33c1d0482dcb";
-    post2.image2 = @"25faba99-cb39-4ac1-87dc-aa4078093e1c";
-    post3.image1 = @"6b0577a0-f7fb-4344-a52a-7207cc47c239";
-    post3.image2 = @"715db931-f491-4abb-a3fd-4651ae2bd03e";
+    post1.image1 = @"ecdd0e60-dd0b-49fe-a7f6-61754e0e5028";
+    post1.image2 = @"a2a43f4f-3a12-4651-bf27-b0f627f2e06f";
+    post2.image1 = @"5493e0fd-a01f-49eb-b314-cd59d03ceac4";
+    post2.image2 = @"24179f7c-ab63-4068-8bc6-f7cf7bedcfca";
+    post3.image1 = @"4dea2abf-204a-433b-813d-28869827f8fa";
+    post3.image2 = @"c4c26cc2-87d9-446a-ae4f-4244939985e6";
     
     
     [self.postArray addObject:post1];
