@@ -13,6 +13,25 @@
     return @"document/posts";
 }
 
-@synthesize user, category, image1, image2, description;
+- (instancetype) initWithDictionary:(NSDictionary *)dictionary {
+    
+    self = [super initWithDictionary:dictionary];
+    
+    if (self) {
+        
+        self.user = dictionary[@"user"];
+        self.category = dictionary[@"category"];
+        self.image1 = dictionary[@"image1"];
+        self.image2 = dictionary[@"image2"];
+        self.description = dictionary[@"description"];
+        self.image1Votes = [dictionary[@"image1Votes"] intValue];
+        self.image2Votes = [dictionary[@"image2Votes"] intValue];
+        self.points = [dictionary[@"points"] intValue];
+        
+    }
+    
+    return self;
+    
+}
 
 @end

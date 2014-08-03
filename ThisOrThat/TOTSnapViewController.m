@@ -192,6 +192,8 @@
         
         if (error == nil) {
             self.tabBarController.selectedIndex = 0;
+            self.image1.image = nil;
+            self.image2.image = nil;
         } else {
             // deal with error
             NSLog([error localizedDescription]);

@@ -14,6 +14,8 @@
 
 @interface TOTParentFeedViewController ()
 
+@property (nonatomic) int maxCount;
+
 @end
 
 @implementation TOTParentFeedViewController
@@ -57,6 +59,22 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [TOTPost fetchCountForObjectsWithCompletion:^(NSInteger count, NSError *error) {
+        
+        if (error == nil) {
+            self.maxCount = (long)(count);
+            [self getPosts];
+        } else {
+            
+            NSLog(@"error is %@", error);
+            
+        }
+        
+    }];
+    [self.postArray removeAllObjects];
 }
 
 - (void)didReceiveMemoryWarning
@@ -173,16 +191,22 @@
 
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [self centerTable:velocity.y - scrollView.decelerationRate];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [self centerTable:abs(velocity.y) - 0.5 * scrollView.decelerationRate];
     });
 }
 
 - (void)centerTable: (float) velocity {
-    [self.tableView setContentOffset:CGPointMake(0, velocity * 400) animated:YES];
+    if (abs(velocity) < 2) {
     NSIndexPath *pathForCenterCell = [self.tableView indexPathForRowAtPoint:CGPointMake(CGRectGetMidX(self.tableView.bounds), CGRectGetMidY(self.tableView.bounds))];
     
     [self.tableView scrollToRowAtIndexPath:pathForCenterCell atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    } else {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [self centerTable:velocity - self.tableView.decelerationRate];
+        });
+        
+    }
 }
 
 
@@ -233,66 +257,42 @@
 
 - (void) getPosts {
     // Override this method for each getPosts method in Feed and Popular
-    TOTPost *post1 = [[TOTPost alloc] init];
-    TOTPost *post2 = [[TOTPost alloc] init];
-    TOTPost *post3 = [[TOTPost alloc] init];
-    
-    post1.user = @"post1";
-    post2.user = @"post2";
-    post3.user = @"post3";
-    
-    post1.description = @"description1";
-    post2.description = @"description2";
-    post3.description = @"description3";
-    
-    post1.category = @"Books";
-    post2.category = @"Clothes";
-    post3.category = @"Food";
-    
-    post1.image1 = @"164da411-a95b-4e2f-b8ff-7dd6bbf944e2";
-    post1.image2 = @"56d18bb0-42ca-4342-9acf-09f9b32b9c9a";
-    post2.image1 = @"6bd42fe5-58e2-4105-a5d0-6cb6d1181c38";
-    post2.image2 = @"76f77c19-5934-4afe-baa5-be7192f16b82";
-    post3.image1 = @"a4a3abf7-a877-45df-a0b5-5d66792dcd07";
-    post3.image2 = @"6bd42fe5-58e2-4105-a5d0-6cb6d1181c38";
-    
-    
-    [self.postArray addObject:post1];
-    [self.postArray addObject:post2];
-    [self.postArray addObject:post3];
+    if (self.postArray.count < 3) {
+        NSLog(@"No I'm being abitch");
+        NSDictionary *parameters = @{kPageNumberKey : @0,
+                                     kPageSizeKey : @3};
+        [TOTPost getObjectsWithParams:parameters
+                           completion:^(NSArray *posts, NSError *error) {
+                               if (error == nil) {
+                                   [self.postArray addObjectsFromArray: posts];
+                                   [self.tableView reloadData];
+                               } else {
+                                   // deal with error
+                                   NSLog([error localizedDescription]);
+                               }
+                               
+                           }];
+    }
 }
 
 - (void) fetchMorePosts {
     // Fill in this method
-    NSLog(@"In fetchmoreposts");
-    TOTPost *post1 = [[TOTPost alloc] init];
-    TOTPost *post2 = [[TOTPost alloc] init];
-    TOTPost *post3 = [[TOTPost alloc] init];
-    
-    post1.user = @"post4";
-    post2.user = @"post5";
-    post3.user = @"post6";
-    
-    post1.description = @"description4";
-    post2.description = @"description5";
-    post3.description = @"description6";
-    
-    post1.category = @"Books";
-    post2.category = @"Clothes";
-    post3.category = @"Food";
-    
-    post1.image1 = @"48bc049c-b022-4ab4-9392-226b4ddf7951";
-    post1.image2 = @"dbed5a7c-0f31-42b7-b58e-5540438d1499";
-    post2.image1 = @"a265a897-25da-4598-bb10-33c1d0482dcb";
-    post2.image2 = @"25faba99-cb39-4ac1-87dc-aa4078093e1c";
-    post3.image1 = @"6b0577a0-f7fb-4344-a52a-7207cc47c239";
-    post3.image2 = @"715db931-f491-4abb-a3fd-4651ae2bd03e";
-    
-    
-    [self.postArray addObject:post1];
-    [self.postArray addObject:post2];
-    [self.postArray addObject:post3];
-    [self.tableView reloadData];
+    if (self.postArray.count < self.maxCount) {
+        NSLog(@"I'm being a bitch");
+    NSDictionary *parameters = @{kPageNumberKey : [NSNumber numberWithInt:self.postArray.count],
+                                 kPageSizeKey : [NSNumber numberWithInt:self.maxCount - self.postArray.count > 3 ? 3 : self.maxCount - self.postArray.count ] };
+    [TOTPost getObjectsWithParams:parameters
+                       completion:^(NSArray *posts, NSError *error) {
+                           if (error == nil) {
+                               [self.postArray addObjectsFromArray: posts];
+                               [self.tableView reloadData];
+                           } else {
+                               // deal with error
+                               NSLog([error localizedDescription]);
+                           }
+                           
+                       }];
+    }
 }
 
 
