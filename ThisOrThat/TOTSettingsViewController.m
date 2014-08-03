@@ -12,6 +12,10 @@
 
 @interface TOTSettingsViewController ()
 
+@property (nonatomic) int maxCount;
+
+@property (nonatomic) BOOL inProgress;
+
 @end
 
 @implementation TOTSettingsViewController
@@ -20,9 +24,29 @@
 
 
 
+- (void) viewWillAppear:(BOOL)animated {
+    [TOTPost fetchCountForObjectsWithCompletion:^(NSInteger count, NSError *error) {
+        
+        if (error == nil) {
+            self.maxCount = (long)(count);
+            [self getPosts];
+        } else {
+            
+            NSLog(@"error is %@", error);
+            
+        }
+        
+    }];
+    [self.postArray removeAllObjects];
+}
+
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tableView.backgroundColor = [UIColor clearColor];
     self.reloadOffset = 20;
     self.postArray = [[NSMutableArray alloc] init];
     [self getPosts];
@@ -84,23 +108,38 @@
     
     static NSString *CellIdentifier = @"Cell";
     TOTPostCell *cell = (TOTPostCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.description.backgroundColor = [UIColor clearColor];
     
     // Configure the cell...
-    cell.user.text = [[self.postArray objectAtIndex:indexPath.row] user];
+    TOTPost *post = [self.postArray objectAtIndex:indexPath.row];
+    cell.user.text = [post user];
     BAAFile *picture = [[BAAFile alloc] init];
-    picture.fileId = [[self.postArray objectAtIndex:indexPath.row] image1];
+    picture.fileId = [post image1];
     [picture loadFileWithCompletion:^(NSData *data, NSError *error) {
         cell.image1.image = [[UIImage alloc] initWithData:data];
     }];
-    picture.fileId = [[self.postArray objectAtIndex:indexPath.row] image2];
+    picture.fileId = [post image2];
     [picture loadFileWithCompletion:^(NSData *data, NSError *error) {
         cell.image2.image = [[UIImage alloc] initWithData:data];
     }];
-    cell.category.text = [[self.postArray objectAtIndex:indexPath.row] category];
-    cell.description.text = [[self.postArray objectAtIndex:indexPath.row] description];
+    cell.category.text = [post category];
+    cell.description.text = [post description];
     cell.description.editable = NO;
     
-    NSLog(@"Finished configuring cell");
+    UIImageView *winner = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"winner.png"]];
+    winner.backgroundColor = [UIColor clearColor];
+    //if (post.image1Votes > post.image2Votes) {
+        NSLog(@"Image 1 wins");
+        [winner setFrame:cell.image1.frame];
+    /*} else if (post.image1Votes < post.image2Votes) {
+        NSLog(@"Image 2 wins");
+        [winner setFrame:cell.image2.frame];
+    } else {
+        NSLog(@"TIE");
+    }*/
+    [self.view sendSubviewToBack:cell.image1];
+    winner.layer.zPosition = 3;
     
     return cell;
 }
@@ -226,71 +265,51 @@
 
 
 
-
 - (void) getPosts {
     // Override this method for each getPosts method in Feed and Popular
-    TOTPost *post1 = [[TOTPost alloc] init];
-    TOTPost *post2 = [[TOTPost alloc] init];
-    TOTPost *post3 = [[TOTPost alloc] init];
-    
-    post1.user = @"post1";
-    post2.user = @"post2";
-    post3.user = @"post3";
-    
-    post1.description = @"description1";
-    post2.description = @"description2";
-    post3.description = @"description3";
-    
-    post1.category = @"Books";
-    post2.category = @"Clothes";
-    post3.category = @"Food";
-    
-    post1.image1 = @"4dea2abf-204a-433b-813d-28869827f8fa";
-    post1.image2 = @"c4c26cc2-87d9-446a-ae4f-4244939985e6";
-    post2.image1 = @"4dea2abf-204a-433b-813d-28869827f8fa";
-    post2.image2 = @"4dea2abf-204a-433b-813d-28869827f8fa";
-    post3.image1 = @"4dea2abf-204a-433b-813d-28869827f8fa";
-    post3.image2 = @"4dea2abf-204a-433b-813d-28869827f8fa";
-    
-    
-    [self.postArray addObject:post1];
-    [self.postArray addObject:post2];
-    [self.postArray addObject:post3];
+    if (self.postArray.count < 3 && !self.inProgress) {
+        self.inProgress = YES;
+        NSLog(@"No I'm being abitch");
+        NSDictionary *parameters = @{kPageNumberKey : @0,
+                                     kPageSizeKey : @3};
+        [TOTPost getObjectsWithParams:parameters
+                           completion:^(NSArray *posts, NSError *error) {
+                               if (error == nil) {
+                                   [self.postArray addObjectsFromArray: posts];
+                                   [self.tableView reloadData];
+                                   self.inProgress = NO;
+                               } else {
+                                   // deal with error
+                                   NSLog([error localizedDescription]);
+                                   self.inProgress = NO;
+                               }
+                               
+                           }];
+    }
 }
 
 - (void) fetchMorePosts {
     // Fill in this method
-    NSLog(@"In fetchmoreposts");
-    TOTPost *post1 = [[TOTPost alloc] init];
-    TOTPost *post2 = [[TOTPost alloc] init];
-    TOTPost *post3 = [[TOTPost alloc] init];
-    
-    post1.user = @"post4";
-    post2.user = @"post5";
-    post3.user = @"post6";
-    
-    post1.description = @"description4";
-    post2.description = @"description5";
-    post3.description = @"description6";
-    
-    post1.category = @"Books";
-    post2.category = @"Clothes";
-    post3.category = @"Food";
-    
-    post1.image1 = @"ecdd0e60-dd0b-49fe-a7f6-61754e0e5028";
-    post1.image2 = @"a2a43f4f-3a12-4651-bf27-b0f627f2e06f";
-    post2.image1 = @"5493e0fd-a01f-49eb-b314-cd59d03ceac4";
-    post2.image2 = @"24179f7c-ab63-4068-8bc6-f7cf7bedcfca";
-    post3.image1 = @"4dea2abf-204a-433b-813d-28869827f8fa";
-    post3.image2 = @"c4c26cc2-87d9-446a-ae4f-4244939985e6";
-    
-    
-    [self.postArray addObject:post1];
-    [self.postArray addObject:post2];
-    [self.postArray addObject:post3];
-    [self.tableView reloadData];
+    if (self.postArray.count < self.maxCount && !self.inProgress) {
+        self.inProgress = YES;
+        NSLog(@"I'm being a bitch");
+        NSDictionary *parameters = @{kPageNumberKey : [NSNumber numberWithInt:self.postArray.count],
+                                     kPageSizeKey : [NSNumber numberWithInt:self.maxCount - self.postArray.count > 3 ? 3 : self.maxCount - self.postArray.count ] };
+        [TOTPost getObjectsWithParams:parameters
+                           completion:^(NSArray *posts, NSError *error) {
+                               if (error == nil) {
+                                   [self.postArray addObjectsFromArray: posts];
+                                   [self.tableView reloadData];
+                                   self.inProgress = NO;
+                               } else {
+                                   // deal with error
+                                   NSLog([error localizedDescription]);
+                                   self.inProgress = NO;
+                               }
+                               
+                           }];
+    }
 }
-
 
 
 
