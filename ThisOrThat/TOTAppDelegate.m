@@ -14,8 +14,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [BaasBox setBaseURL:@"http://169.254.154.234:9000"
+    
+    if (TARGET_IPHONE_SIMULATOR) {
+    [BaasBox setBaseURL:@"http://localhost:9000"
                 appCode:@"1234567890"];
+    } else {
+        [BaasBox setBaseURL:@"http://169.254.154.234:9000"
+                    appCode:@"1234567890"];
+    }
     // Override point for customization after application launch.
     
     TOTLoginViewController *vc = [[TOTLoginViewController alloc] init];
