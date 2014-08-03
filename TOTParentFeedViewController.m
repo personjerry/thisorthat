@@ -16,6 +16,8 @@
 
 @property (nonatomic) int maxCount;
 
+@property (nonatomic) BOOL inProgress;
+
 @end
 
 @implementation TOTParentFeedViewController
@@ -37,7 +39,6 @@
     [super viewDidLoad];
     self.reloadOffset = 20;
     self.postArray = [[NSMutableArray alloc] init];
-    [self getPosts];
     
     self.view.userInteractionEnabled = YES;
     
@@ -257,7 +258,8 @@
 
 - (void) getPosts {
     // Override this method for each getPosts method in Feed and Popular
-    if (self.postArray.count < 3) {
+    if (self.postArray.count < 3 && !self.inProgress) {
+        self.inProgress = YES;
         NSLog(@"No I'm being abitch");
         NSDictionary *parameters = @{kPageNumberKey : @0,
                                      kPageSizeKey : @3};
@@ -266,9 +268,11 @@
                                if (error == nil) {
                                    [self.postArray addObjectsFromArray: posts];
                                    [self.tableView reloadData];
+                                   self.inProgress = NO;
                                } else {
                                    // deal with error
                                    NSLog([error localizedDescription]);
+                                   self.inProgress = NO;
                                }
                                
                            }];
@@ -277,7 +281,8 @@
 
 - (void) fetchMorePosts {
     // Fill in this method
-    if (self.postArray.count < self.maxCount) {
+    if (self.postArray.count < self.maxCount && !self.inProgress) {
+        self.inProgress = YES;
         NSLog(@"I'm being a bitch");
     NSDictionary *parameters = @{kPageNumberKey : [NSNumber numberWithInt:self.postArray.count],
                                  kPageSizeKey : [NSNumber numberWithInt:self.maxCount - self.postArray.count > 3 ? 3 : self.maxCount - self.postArray.count ] };
@@ -286,9 +291,11 @@
                            if (error == nil) {
                                [self.postArray addObjectsFromArray: posts];
                                [self.tableView reloadData];
+                               self.inProgress = NO;
                            } else {
                                // deal with error
                                NSLog([error localizedDescription]);
+                               self.inProgress = NO;
                            }
                            
                        }];
