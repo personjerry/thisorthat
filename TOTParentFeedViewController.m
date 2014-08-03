@@ -43,9 +43,10 @@
     tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgToFullScreen1)];
     tap1.numberOfTapsRequired = 1;
     tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgToFullScreen2)];
-    
-    //
-    //[self.tableView reloadData];
+    swipe1 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(chooseLeft)];
+    [swipe1 setDirection:UISwipeGestureRecognizerDirectionLeft];
+    swipe2 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(chooseRight)];
+    [swipe2 setDirection:UISwipeGestureRecognizerDirectionRight];
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -105,6 +106,10 @@
     [cell.image1 addGestureRecognizer:tap1];
     tap2.delegate = cell.image2;
     [cell.image2 addGestureRecognizer:tap2];
+    
+    [cell.image1 addGestureRecognizer:swipe1];
+    [cell.image2 addGestureRecognizer:swipe2];
+    
     
     /*
     UIImageView *image1View = cell.image1;
@@ -187,7 +192,13 @@
     }
 }
 
+- (void) chooseLeft {
+    NSLog(@"Chose left");
+}
 
+- (void) chooseRight {
+    NSLog(@"Chose right");
+}
 
 
 - (void) chooseCell:(TOTPostCell *)currCell1 andImage:(UIImage *) chosen {
