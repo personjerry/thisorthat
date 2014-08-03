@@ -31,7 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.reloadOffset = 20;
+    self.reloadOffset = 1;
     self.postArray = [[NSMutableArray alloc] init];
     [self getPosts];
     
@@ -68,6 +68,7 @@
 {
     NSInteger NumberOfLoadedRows = [tableView numberOfRowsInSection:indexPath.section];
     if (indexPath.row >= NumberOfLoadedRows - self.reloadOffset) {
+        NSLog(@"In if statement");
         [self fetchMorePosts];
     }
     
@@ -120,8 +121,35 @@
 
 - (void) fetchMorePosts {
     // Fill in this method
+    NSLog(@"In fetchmoreposts");
+    TOTPost *post1 = [[TOTPost alloc] init];
+    TOTPost *post2 = [[TOTPost alloc] init];
+    TOTPost *post3 = [[TOTPost alloc] init];
     
-    //[self.tableView reloadData];
+    post1.user = @"post4";
+    post2.user = @"post5";
+    post3.user = @"post6";
+    
+    post1.description = @"description4";
+    post2.description = @"description5";
+    post3.description = @"description6";
+    
+    post1.category = @"Books";
+    post2.category = @"Clothes";
+    post3.category = @"Food";
+    
+    post1.image1 = [UIImage imageNamed:@"testimage4.jpg"];
+    post1.image2 = [UIImage imageNamed:@"testimage5.png"];
+    post2.image1 = [UIImage imageNamed:@"testimage5.png"];
+    post2.image2 = [UIImage imageNamed:@"testimage6.jpg"];
+    post3.image1 = [UIImage imageNamed:@"testimage6.jpg"];
+    post3.image2 = [UIImage imageNamed:@"testimage4.jpg"];
+    
+    
+    [self.postArray addObject:post1];
+    [self.postArray addObject:post2];
+    [self.postArray addObject:post3];
+    [self.tableView reloadData];
 }
 
 
