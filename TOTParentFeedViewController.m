@@ -40,8 +40,9 @@
     self.view.userInteractionEnabled = YES;
     
     isFullScreen = false;
-    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgToFullScreen)];
-    tap.numberOfTapsRequired = 1;
+    tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgToFullScreen1)];
+    tap1.numberOfTapsRequired = 1;
+    tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgToFullScreen2)];
     
     //
     //[self.tableView reloadData];
@@ -98,8 +99,12 @@
     cell.description.editable = NO;
     
     cell.image1.userInteractionEnabled = YES;
-    tap.delegate = cell.image1;
-    [cell.image1 addGestureRecognizer:tap];
+    cell.image2.userInteractionEnabled = YES;
+    
+    tap1.delegate = cell.image1;
+    [cell.image1 addGestureRecognizer:tap1];
+    tap2.delegate = cell.image2;
+    [cell.image2 addGestureRecognizer:tap2];
     
     /*
     UIImageView *image1View = cell.image1;
@@ -131,22 +136,8 @@
     return cell;
 }
 
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch;
-{
-    NSLog(@"in gestureRecognizer");
-    BOOL shouldReceiveTouch = YES;
-    
-    if (gestureRecognizer == tap) {
-        shouldReceiveTouch = (touch.view == currCell.image1);
-    }
-    NSLog(@"shouldreceivetouch: %s", shouldReceiveTouch ? "true" : "false");
-    //return shouldReceiveTouch;
-    return YES;
-}
-
 //-(IBAction)imgToFullScreen:(id)sender {
--(void)imgToFullScreen{
+-(void)imgToFullScreen1{
     NSLog(@"In imgtofullscreen");
     if (!isFullScreen) {
         [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
@@ -170,6 +161,33 @@
         return;
     }
 }
+
+-(void)imgToFullScreen2{
+    NSLog(@"In imgtofullscreen");
+    if (!isFullScreen) {
+        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+            //save previous frame
+            prevFrame = currCell.image2.frame;
+            self.view.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+            [currCell.image2 setFrame:[[UIScreen mainScreen] applicationFrame]];
+            self.tableView.scrollEnabled = NO;
+            currCell.image2.layer.zPosition = 2;
+        }completion:^(BOOL finished){
+            isFullScreen = true;
+        }];
+        return;
+    } else {
+        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+            [currCell.image2 setFrame:prevFrame];
+        }completion:^(BOOL finished){
+            isFullScreen = false;
+        }];
+        self.tableView.scrollEnabled = YES;
+        return;
+    }
+}
+
+
 
 
 - (void) chooseCell:(TOTPostCell *)currCell1 andImage:(UIImage *) chosen {

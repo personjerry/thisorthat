@@ -11,7 +11,8 @@
 
 @interface TOTParentFeedViewController : UITableViewController <UIGestureRecognizerDelegate> {
 
-UITapGestureRecognizer *tap;
+UITapGestureRecognizer *tap1;
+UITapGestureRecognizer *tap2;
 bool isFullScreen;
 CGRect prevFrame;
 
