@@ -103,7 +103,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger NumberOfLoadedRows = [tableView numberOfRowsInSection:indexPath.section];
-    if (indexPath.row >= NumberOfLoadedRows - self.reloadOffset) {
+    if (indexPath.row >= NumberOfLoadedRows - self.reloadOffset && !self.inProgress) {
         NSLog(@"In if statement");
         [self fetchMorePosts];
     }
@@ -286,8 +286,8 @@
     if (self.postArray.count < self.maxCount && !self.inProgress) {
         self.inProgress = YES;
         NSLog(@"I'm being a bitch");
-    NSDictionary *parameters = @{kPageNumberKey : [NSNumber numberWithInt:self.postArray.count],
-                                 kPageSizeKey : [NSNumber numberWithInt:self.maxCount - self.postArray.count > 3 ? 3 : self.maxCount - self.postArray.count ] };
+    NSDictionary *parameters = @{kPageNumberKey : [NSNumber numberWithInt:self.postArray.count/3],
+                                 kPageSizeKey : @3};
     [TOTPost getObjectsWithParams:parameters
                        completion:^(NSArray *posts, NSError *error) {
                            if (error == nil) {
