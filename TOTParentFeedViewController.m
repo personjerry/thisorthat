@@ -9,7 +9,8 @@
 #import "TOTParentFeedViewController.h"
 #import "TOTPost.h"
 #import "TOTPostCell.h"
-#import <objc/runtime.h>
+//#import <objc/runtime.h>
+#import "QuartzCore/QuartzCore.h"
 
 @interface TOTParentFeedViewController ()
 
@@ -44,6 +45,7 @@
     //tap.delegate = self;
     //[self.view addGestureRecognizer:tap];
     
+    //
     [self.tableView reloadData];
     
     
@@ -152,7 +154,10 @@
         [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
             //save previous frame
             prevFrame = currCell.image1.frame;
-            [currCell.image1 setFrame:[[UIScreen mainScreen] bounds]];
+            self.view.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+            [currCell.image1 setFrame:[[UIScreen mainScreen] applicationFrame]];
+            self.tableView.scrollEnabled = NO;
+            currCell.image1.layer.zPosition = 2;
         }completion:^(BOOL finished){
             isFullScreen = true;
         }];
@@ -163,6 +168,7 @@
         }completion:^(BOOL finished){
             isFullScreen = false;
         }];
+        self.tableView.scrollEnabled = YES;
         return;
     }
 }
