@@ -49,7 +49,7 @@
     [self.tableView addGestureRecognizer:swipe2];
     
     tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageWasTapped:)];
-    tap1.numberOfTapsRequired = 1;
+    tap1.numberOfTapsRequired = 2;
     [self.tableView addGestureRecognizer:tap1];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -166,13 +166,14 @@
 }
 
 
-- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        self.centerTable;
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [self centerTable:velocity.y - scrollView.decelerationRate];
     });
 }
 
-- (void)centerTable {
+- (void)centerTable: (float) velocity {
+    [self.tableView setContentOffset:CGPointMake(0, velocity * 400) animated:YES];
     NSIndexPath *pathForCenterCell = [self.tableView indexPathForRowAtPoint:CGPointMake(CGRectGetMidX(self.tableView.bounds), CGRectGetMidY(self.tableView.bounds))];
     
     [self.tableView scrollToRowAtIndexPath:pathForCenterCell atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
