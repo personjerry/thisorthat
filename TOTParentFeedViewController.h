@@ -13,8 +13,10 @@
 
     UITapGestureRecognizer *tap1;
     UITapGestureRecognizer *tap2;
-    bool isFullScreen;
-    CGRect prevFrame;
+    bool isFullScreen1;
+    bool isFullScreen2;
+    CGRect prevFrame1;
+    CGRect prevFrame2;
     
     UISwipeGestureRecognizer *swipe1;
     UISwipeGestureRecognizer *swipe2;

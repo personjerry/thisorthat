@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TOTPostCell : UITableViewCell
+@interface TOTPostCell : UITableViewCell {
+    CGRect prevFrame1;
+    CGRect prevFrame2;
+}
 
 @property (nonatomic, strong) IBOutlet UILabel *user;
 @property (nonatomic, strong) IBOutlet UILabel *category;

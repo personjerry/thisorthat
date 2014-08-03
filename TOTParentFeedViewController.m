@@ -39,14 +39,19 @@
     
     self.view.userInteractionEnabled = YES;
     
-    isFullScreen = false;
+    
+    /*isFullScreen1 = false;
+    isFullScreen2 = false;
     tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgToFullScreen1)];
     tap1.numberOfTapsRequired = 1;
     tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgToFullScreen2)];
     swipe1 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(chooseLeft)];
     [swipe1 setDirection:UISwipeGestureRecognizerDirectionLeft];
     swipe2 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(chooseRight)];
-    [swipe2 setDirection:UISwipeGestureRecognizerDirectionRight];
+    [swipe2 setDirection:UISwipeGestureRecognizerDirectionRight];*/
+    tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageWasTapped:)];
+    tap1.numberOfTapsRequired = 1;
+    [self.tableView addGestureRecognizer:tap1];
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -88,6 +93,10 @@
     
     static NSString *CellIdentifier = @"Cell";
     TOTPostCell *cell = (TOTPostCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    /*if (cell == nil) {
+        TOTPostCell *cell = [[TOTPostCell alloc] init];
+    }*/
+    
     currCell = cell;
     
     // Configure the cell...
@@ -99,6 +108,9 @@
     cell.description.text = [[self.postArray objectAtIndex:indexPath.row] description];
     cell.description.editable = NO;
     
+    /*if ([[cell gestureRecognizer] containsObject:tap1] || [[cell gestureRecognizers] containsObject:tap2]) {
+        
+    }
     cell.image1.userInteractionEnabled = YES;
     cell.image2.userInteractionEnabled = YES;
     
@@ -108,7 +120,7 @@
     [cell.image2 addGestureRecognizer:tap2];
     
     [cell.image1 addGestureRecognizer:swipe1];
-    [cell.image2 addGestureRecognizer:swipe2];
+    [cell.image2 addGestureRecognizer:swipe2];*/
     
     
     /*
@@ -141,26 +153,48 @@
     return cell;
 }
 
+- (void) imageWasTapped: (UITapGestureRecognizer *) tap {
+    CGPoint tapLocation = [tap locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForItemAtPoint:tapLocation];
+    if (indexPath)
+    {
+        MyCollectionViewCell *cell = (MyCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+        CGRect mySubviewRectInCollectionViewCoorSys = [self.collectionView convertRect:cell.mySubview.frame fromView:cell];
+        if (CGRectContainsPoint(mySubviewRectInCollectionViewCoorSys, tapLocation))
+        {
+            // Yay! My subview was tapped!
+        }
+    }
+}
+
+
+
+
+
+
+
+
 //-(IBAction)imgToFullScreen:(id)sender {
 -(void)imgToFullScreen1{
     NSLog(@"In imgtofullscreen");
-    if (!isFullScreen) {
+    if (!isFullScreen1) {
         [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
             //save previous frame
-            prevFrame = currCell.image1.frame;
+            prevFrame1 = currCell.image1.frame;
             self.view.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
             [currCell.image1 setFrame:[[UIScreen mainScreen] applicationFrame]];
             self.tableView.scrollEnabled = NO;
             currCell.image1.layer.zPosition = 2;
         }completion:^(BOOL finished){
-            isFullScreen = true;
+            isFullScreen1 = true;
         }];
         return;
     } else {
         [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
-            [currCell.image1 setFrame:prevFrame];
+            [currCell.image1 setFrame:prevFrame1];
+            currCell.image1.layer.zPosition = 1;
         }completion:^(BOOL finished){
-            isFullScreen = false;
+            isFullScreen1 = false;
         }];
         self.tableView.scrollEnabled = YES;
         return;
@@ -169,23 +203,24 @@
 
 -(void)imgToFullScreen2{
     NSLog(@"In imgtofullscreen");
-    if (!isFullScreen) {
+    if (!isFullScreen2) {
         [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
             //save previous frame
-            prevFrame = currCell.image2.frame;
+            prevFrame2 = currCell.image2.frame;
             self.view.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
             [currCell.image2 setFrame:[[UIScreen mainScreen] applicationFrame]];
             self.tableView.scrollEnabled = NO;
             currCell.image2.layer.zPosition = 2;
         }completion:^(BOOL finished){
-            isFullScreen = true;
+            isFullScreen2 = true;
         }];
         return;
     } else {
         [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
-            [currCell.image2 setFrame:prevFrame];
+            [currCell.image2 setFrame:prevFrame2];
+            currCell.image2.layer.zPosition = 1;
         }completion:^(BOOL finished){
-            isFullScreen = false;
+            isFullScreen2 = false;
         }];
         self.tableView.scrollEnabled = YES;
         return;
@@ -199,18 +234,6 @@
 - (void) chooseRight {
     NSLog(@"Chose right");
 }
-
-
-- (void) chooseCell:(TOTPostCell *)currCell1 andImage:(UIImage *) chosen {
-    if (chosen == currCell1.image1.image) {
-        
-    } else if (chosen == currCell1.image2.image) {
-        
-    } else {
-        NSLog(@"This isn't either of the images. What happened?");
-    }
-}
-
 
 
 
